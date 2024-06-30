@@ -1,9 +1,12 @@
 {
   "scripts": {
-    "start": "tsx Scripts/Test/Main.ts"
+    "start": "tsx Scripts/Test/Main.ts",
+    "build": "tsx Scripts/Build/Main.ts"
   },
 
   "devDependencies": {
+    "terser": "^5.31.1",
+    "tsup": "^8.1.0",
     "tsx": "^4.15.7"
   }
 }
