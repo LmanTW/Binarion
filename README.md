@@ -1,3 +1,5 @@
+![Banner](./Assets/Visual/Banner.svg)
+
 # Binarion
 A binary format for storing JavaScript objects.
 
