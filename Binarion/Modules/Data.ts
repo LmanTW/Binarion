@@ -27,7 +27,7 @@ namespace Data {
     Uint8Array = 7,
     Uint16Array = 8,
     Uint32Array = 9,
-    // Float64Array
+    Float64Array = 10,
 
     Object = 11,
     Map = 12,
