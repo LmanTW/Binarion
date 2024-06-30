@@ -1,5 +1,7 @@
-<p align="center">
-  <img src="./Assets/Visual/Banner.svg"></img>
+<p align="center"> 
+  <picture>
+    <img src="./Assets/Visual/Banner.svg"></img>
+  </picture>
 
   <br>
 
@@ -7,11 +9,6 @@
   <a href="./Documents/API.md">Documentation</a> | 
   <a href="./Documents/FAQ.md">FAQ</a>
 </p>
-
-# Binarion
-A binary format for storing JavaScript objects.
-
-[Get Started]() | [API Documentation](./Documents/API.md)
 
 ## Example
 ```ts
