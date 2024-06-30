@@ -9,7 +9,7 @@ export default {
     return bytes
   },
 
-  // Load A JavaScript Object
+  // Load A JavaScript Object 
   load: (bytes: Uint8Array): any => {
     return Fragment.readFragment(bytes, 0).data
   }

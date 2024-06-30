@@ -1,6 +1,4 @@
 Source: https://coolors.co/palette/fffcf2-ccc5b9-403d39-252422-eb5e28
 
-Background        - #252422
-Background Bright - #403d39
 Text              - #fffcf2
 Text Highlight    - #eb5e28
