@@ -1,4 +1,12 @@
-![Banner](./Assets/Visual/Banner.svg)
+<p align="center">
+  <img src="./Assets/Visual/Banner.svg"></img>
+
+  <br>
+
+  <a href="./Documents/GetStarted.md">Get Started</a> | 
+  <a href="./Documents/API.md">Documentation</a> | 
+  <a href="./Documents/FAQ.md">FAQ</a>
+</p>
 
 # Binarion
 A binary format for storing JavaScript objects.
