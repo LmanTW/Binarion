@@ -1,3 +1,4 @@
+import { minify } from 'terser'
 import { build } from 'tsup'
 import path from 'path'
 import fs from 'fs'
@@ -6,7 +7,7 @@ import fs from 'fs'
 async function start (): Promise<void> {
   if (!fs.existsSync(path.join(__dirname, 'Cache'))) fs.mkdirSync(path.join(__dirname, 'Cache'))
 
-  console.log(` 📦 Building Binarion`)
+  console.log(` 📦 Bundling Binarion`)
 
   console.log(`    - Bundling \x1b[34mBinarion.cjs\x1b[0m`)
 
@@ -17,7 +18,6 @@ async function start (): Promise<void> {
     outDir: path.join(__dirname, 'Cache'),
 
     format: 'cjs',
-    minify: true,
 
     skipNodeModulesBundle: true
   })
@@ -31,7 +31,6 @@ async function start (): Promise<void> {
     outDir: path.join(__dirname, 'Cache'),
 
     format: 'esm',
-    minify: 'terser',
 
     skipNodeModulesBundle: true
   })
@@ -47,7 +46,15 @@ async function start (): Promise<void> {
     dts: true
   })
 
-  console.log(` \x1b[32m📦 Successfully Built Binarion\x1b[0m\n`)
+  console.log(` \x1b[32m📦 Successfully Bundled Binarion\x1b[0m\n`)
+
+  console.log(` 🗜️ Minifying Binarion`)
+
+  const filesPath = [path.join(__dirname, 'Cache', 'API.js'), path.join(__dirname, 'Cache', 'API.mjs')]
+
+  for (let filePath of filesPath) fs.writeFileSync(filePath, (await minify(fs.readFileSync(filePath, 'utf8'))).code!)
+
+  console.log(` \x1b[32m🗜️ Successfully Minified Binarion\x1b[0m\n`)
   
   fs.renameSync(path.join(__dirname, 'Cache', 'API.js'), path.resolve(__dirname, '../../Assets/Binarion.cjs'))
   fs.renameSync(path.join(__dirname, 'Cache', 'API.mjs'), path.resolve(__dirname, '../../Assets/Binarion.mjs'))
