@@ -1,10 +1,10 @@
 <img src="./Assets/Visual/Banner.svg"></img>
 
-<div style="display: flex">
+<p align="center">
   <a href="./Documents/GetStarted.md">Get Started</a> | 
   <a href="./Documents/API.md">Documentation</a> | 
   <a href="./Documents/FAQ.md">FAQ</a>
-</div>
+</p>
 
 ## Example
 ```ts
