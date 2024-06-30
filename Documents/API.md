@@ -1,6 +1,18 @@
 # Binarion API
 The API documentation of Binarion.
 
+## Installation
+```bash
+npm install binarion
+```
+
+> [!TIP]
+> You can also download Binarion straight into your project if you don't want to stronger your `node_modules` blackhole.
+>
+> * [Binarion.mjs](./Assets/Binarion.cjs) ([CommonJS](https://en.wikipedia.org/wiki/CommonJS))
+> * [Binarion.cjs](./Assets/Binarion.cjs) ([ECMAScript](https://en.wikipedia.org/wiki/ECMAScript))
+> * [Binarion.d.ts](./Assets/Binarion.d.ts) ([Type Definition](https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html))
+
 ## Contents
 * [Binarion](#binarion)
   * [save()](#save)

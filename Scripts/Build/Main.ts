@@ -9,19 +9,6 @@ async function start (): Promise<void> {
 
   console.log(` 📦 Bundling Binarion`)
 
-  console.log(`    - Bundling \x1b[34mBinarion.cjs\x1b[0m`)
-
-  await build({
-    silent: true,
-
-    entry: [path.resolve(__dirname, '../../Binarion/API.ts')],
-    outDir: path.join(__dirname, 'Cache'),
-
-    format: 'cjs',
-
-    skipNodeModulesBundle: true
-  })
-
   console.log(`    - Bundling \x1b[34mBinarion.mjs\x1b[0m`)
 
   await build({
@@ -34,6 +21,19 @@ async function start (): Promise<void> {
 
     skipNodeModulesBundle: true
   })
+
+  console.log(`    - Bundling \x1b[34mBinarion.cjs\x1b[0m`)
+
+  await build({
+    silent: true,
+
+    entry: [path.resolve(__dirname, '../../Binarion/API.ts')],
+    outDir: path.join(__dirname, 'Cache'),
+
+    format: 'cjs',
+
+    skipNodeModulesBundle: true
+  }) 
 
   console.log(`    - Generating \x1b[34mBinarion.d.ts\x1b[0m`)
 
