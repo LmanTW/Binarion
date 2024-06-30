@@ -6,16 +6,11 @@
   <a href="./Documents/FAQ.md">FAQ</a>
 </p>
 
-## Example
-```ts
-import Binarion from 'binarion'
-
-let data = Binarion.save({ a: 123, b: '123', c: new Uint8Array(64) })
-
-console.log(Binarion.load(data))
-```
+> [!WARNING]
+> This project is still in it's early development stage, so we may introduce some breaking changes about the API and the data format.
 
 ## Installation
 ```bash
 npm install binarion
 ```
+
