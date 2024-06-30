@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "tsx Scripts/Test/Main.ts"
+  },
+
+  "devDependencies": {
+    "tsx": "^4.15.7"
+  }
+}
