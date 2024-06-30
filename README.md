@@ -10,7 +10,7 @@
 > This project is still in it's early development stage, so we may introduce some breaking changes to the API and the data format.
 
 ## About Binarion
-Binarion is designed for storing JavaScript objects that contain large amounts of data (Such as an ultra large `Uint8Array`). For most use cases, using [JSON](https://en.wikipedia.org/wiki/JSON) will be faster and smaller, but for some niche use cases, Binarion can be a good choice. For example:
+Binarion is designed for storing JavaScript objects that contain large amounts of data (Such as an ultra large `Uint8Array`). For most use cases, using [JSON](https://en.wikipedia.org/wiki/JSON) will be faster and more compact, but for some niche use cases, Binarion can be a good choice. For example:
 
 Using Binarion to store objects like the following one is going to be **way faster** compare to [JSON](https://en.wikipedia.org/wiki/JSON):
 ```ts
@@ -36,7 +36,7 @@ Using Binarion to store objects like the following one is going to be **way fast
 > - [x] Uint32Array
 > - [ ] Float64Array
 
-> - [x] Object
+> - [ ] Object
 > - [ ] Map
 > - [ ] Set
 
