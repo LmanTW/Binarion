@@ -1,7 +1,7 @@
 # Get Started
 Get started with Binarion.
 
-##  Install Binarion
+## Install Binarion
 
 ```
 npm install binarion

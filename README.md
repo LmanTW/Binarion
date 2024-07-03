@@ -1,4 +1,4 @@
-<img src="./Assets/Visuals/Banner.svg"></img>
+<img src="https://raw.githubusercontent.com/LmanTW/Binarion/main/Assets/Visuals/Banner.svg"></img>
 
 <p align="center">
   <a href="https://github.com/LmanTW/Binarion/blob/main/Documents/GetStarted.md">Get Started</a> | 
