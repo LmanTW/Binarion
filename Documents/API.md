@@ -22,6 +22,11 @@ npm install binarion
 * [Binarion](#binarion)
   * [save()](#save)
   * [load()](#load)
+  * [inspect()](#inspect)
+* [Inspect.FragmentInfo](#inspect.fragmentinfo)
+* [Inspect.Result](#inspect.result)
+  * [Getters](#getters)
+  * [format()](#format)
 
 # Binarion
 
@@ -51,3 +56,43 @@ const Binarion = require('binarion') // For CommonJS.
 * `bytes Uint8Array` | The data you want to use to load a JavaScript object.
 
 > return `any`
+
+## inspect()
+
+```ts
+.inspect(<bytes>) // Inspect A Binarion Data.
+```
+
+> return [InspectResult](#inspectresult)
+
+# Inspect.FragmentInfo
+
+The fragment inspect info.
+
+```ts
+{
+  dataFormatID: DataFormat.ID,
+  headerAttachment: number,
+
+  name: string,
+
+  fragmentLength: number
+  index: number,
+
+  children: Inspect.FragmentInfo[]
+}
+```
+
+# Inspect.Result
+
+The result of the inspection.
+
+## Getters
+* `fragmentInfo: fragmentInfo` | The fragment inspect info.
+
+## format()
+```ts
+.format() // Format the fragment inspect info.
+```
+
+> return `string`

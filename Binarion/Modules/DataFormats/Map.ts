@@ -48,6 +48,17 @@ const DataFormat_Map: DataFormat.Template<Map<any, any>, { bodyLength: number }>
     for (let i = 0; i < mapSize; i++) map.set(String.readString(Reader), Fragment.readFragment(Reader))
 
     return map
+  },
+
+  inspectName: () => 'Map',
+  inspectChildren: (Reader) => {
+    const fragmentsInfo: Inspect.FragmentInfo[] = []
+
+    const mapSize = Integer.readInteger(Reader)
+
+    for (let i = 0; i < mapSize; i++) fragmentsInfo.push(Fragment.inspectFragment(Reader))
+
+    return fragmentsInfo
   }
 }
 
@@ -56,3 +67,4 @@ export default DataFormat_Map
 import Integer from '../DataTypes/Integer'
 import String from '../DataTypes/String'
 import Fragment from '../Fragment'
+import Inspect from '../Inspect'

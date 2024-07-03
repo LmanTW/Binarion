@@ -27,15 +27,36 @@ export default class {
   }
 
   // Read A Fragment
-  public static readFragment (Reader: Data.Reader) {
+  public static readFragment (Reader: Data.Reader): any {
     const [dataFormatID, headerAttachment] = Nibble.readNibble(Reader)
 
+    return Data.getDataFormat(dataFormatID).readBody(Reader, headerAttachment)
+  }
+
+  // Inspect A Fragment
+  public static inspectFragment (Reader: Data.Reader): Inspect.FragmentInfo {
+    const index = Reader.index
+
+    const [dataFormatID, headerAttachment] = Nibble.readNibble(Reader)
+    
     const dataFormat = Data.getDataFormat(dataFormatID)
 
-    return dataFormat.readBody(Reader, headerAttachment)
+    const children = Data.getDataFormat(dataFormatID).inspectChildren(Reader)
+
+    return {
+      dataFormatID,
+      headerAttachment,
+
+      name: dataFormat.inspectName(headerAttachment),
+
+      fragmentLength: Reader.index - index,
+      index,
+
+      children
+    }
   }
 }
 
-import Integer from './DataTypes/Integer'
 import Nibble from './DataTypes/Nibble'
+import Inspect from './Inspect'
 import Data from './Data'

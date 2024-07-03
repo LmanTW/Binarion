@@ -13,13 +13,18 @@ namespace Binarion {
 
   // Load A JavaScript Object
   export function load (bytes: Uint8Array): any {
-    const Reader = new Data.Reader(bytes)
+    return Fragment.readFragment(new Data.Reader(bytes))
+  }
 
-    return Fragment.readFragment(Reader)
+  // Inspect Binarion Data
+  export function inspect (bytes: Uint8Array): Inspect.Result {
+    return new Inspect.Result(Fragment.inspectFragment(new Data.Reader(bytes))) 
   }
 }
 
 export default Binarion
 
+
 import Fragment from './Modules/Fragment'
+import Inspect from './Modules/Inspect'
 import Data from './Modules/Data'

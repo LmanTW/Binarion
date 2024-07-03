@@ -21,17 +21,29 @@ const DataFormat_Array: DataFormat.Template<Array<any>, { bodyLength: number, in
     for (let element of data) Fragment.writeFragment(Writer, element)
   },
   readBody: (Reader) => {
-    const arrayLength = Integer.readInteger(Reader)
-
     const array: any[] = []
+
+    const arrayLength = Integer.readInteger(Reader)
 
     for (let i = 0; i < arrayLength; i++) array.push(Fragment.readFragment(Reader))
 
     return array
-  } 
+  },
+
+  inspectName: () => 'Array',
+  inspectChildren: (Reader) => {
+    const fragmentsInfo: Inspect.FragmentInfo[] = []
+
+    const arrayLength = Integer.readInteger(Reader)
+
+    for (let i = 0; i < arrayLength; i++) fragmentsInfo.push(Fragment.inspectFragment(Reader))
+
+    return fragmentsInfo
+  }
 }
 
 export default DataFormat_Array
 
 import Integer from '../DataTypes/Integer'
 import Fragment from '../Fragment'
+import Inspect from '../Inspect'

@@ -1,6 +1,10 @@
 import Binarion from '../../Binarion/API'
 
-const data = 1234567890
+const data = {
+  a: true,
+  b: 123,
+  c: [1, 2, 3]
+} 
 
 const bytes = Binarion.save(data)
 
@@ -11,4 +15,4 @@ console.log('JSON', Buffer.from(JSON.stringify(data)).length)
 
 // console.log(bytes)
 
-console.log(Binarion.load(bytes))
+console.log(Binarion.inspect(bytes).format())

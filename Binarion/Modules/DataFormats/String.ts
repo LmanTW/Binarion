@@ -10,7 +10,10 @@ const DataFormat_String: DataFormat.Template<string, { bodyLength: number }> = {
   },
 
   writeBody: (Writer, data) => String.writeString(Writer, data),
-  readBody: (Reader) => String.readString(Reader)
+  readBody: (Reader) => String.readString(Reader),
+
+  inspectName: () => 'String',
+  inspectChildren: () => []
 }
 
 export default DataFormat_String

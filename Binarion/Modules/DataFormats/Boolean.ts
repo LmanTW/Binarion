@@ -10,7 +10,10 @@ const DataFormat_Boolean: DataFormat.Template<boolean, { bodyLength: number }> =
   },
 
   writeBody: () => {},
-  readBody: (_, headerAttachment) => headerAttachment === 1
+  readBody: (_, headerAttachment) => headerAttachment === 1,
+
+  inspectName: () => 'Boolean',
+  inspectChildren: () => []
 }
 
 export default DataFormat_Boolean

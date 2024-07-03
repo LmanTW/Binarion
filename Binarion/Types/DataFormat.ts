@@ -2,7 +2,6 @@
 namespace DataFormat {
   // A Data Format
   export interface Template <Type, BodyInfo extends { bodyLength: number }> {
-
     id: DataFormat.ID,
 
     getHeaderAttachemnt: (data: Type) => number,
@@ -10,7 +9,10 @@ namespace DataFormat {
     getBodyInfo: (data: Type) => BodyInfo,
     
     writeBody: (Writer: Data.Writer, data: Type, bodyInfo: BodyInfo) => void,
-    readBody: (Reader: Data.Reader, headerAttachment: number) => Type
+    readBody: (Reader: Data.Reader, headerAttachment: number) => Type,
+
+    inspectName: (headerAttachment: number) => string,
+    inspectChildren: (Reader: Data.Reader) => Inspect.FragmentInfo[]
   }
 
   // IDs Of All Data Formats Supported By Binarion
@@ -38,4 +40,5 @@ namespace DataFormat {
 
 export default DataFormat
 
+import Inspect from '../Modules/Inspect'
 import Data from '../Modules/Data'

@@ -15,12 +15,17 @@ const DataFormat_None: DataFormat.Template<null | undefined, { bodyLength: numbe
 
   writeBody: () => {},
   readBody: (_, headerAttachment) => {
-    console.log(headerAttachment)
-
     if (headerAttachment === 0) return null
     
     return undefined
-  } 
+  },
+
+  inspectName: (headerAttachment) => {
+    if (headerAttachment === 0) return 'None (Null)'
+
+    return 'None (Undefined)'
+  },
+  inspectChildren: () => []
 }
 
 export default DataFormat_None

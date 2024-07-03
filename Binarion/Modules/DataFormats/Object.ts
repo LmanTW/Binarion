@@ -31,14 +31,27 @@ const DataFormat_Object: DataFormat.Template<{ [key: string]: any }, { bodyLengt
   readBody: (Reader) => {
     const object: { [key: string]: any } = {}
 
-    const objectSize = Integer.readInteger(Reader) 
+    const objectSize = Integer.readInteger(Reader)
 
-    for (let i = 0; i < objectSize; i++) {
-      object[String.readString(Reader)] = Fragment.readFragment(Reader)
-    }
+    for (let i = 0; i < objectSize; i++) object[String.readString(Reader)] = Fragment.readFragment(Reader)
 
     return object
-  } 
+  },
+
+  inspectName: () => 'Object',
+  inspectChildren: (Reader) => {
+    const fragmentsInfo: Inspect.FragmentInfo[] = []
+
+    const objectSize = Integer.readInteger(Reader)
+
+    for (let i = 0; i < objectSize; i++) {
+      String.readString(Reader)
+
+      fragmentsInfo.push(Fragment.inspectFragment(Reader))
+    }
+
+    return fragmentsInfo
+  }
 }
 
 export default DataFormat_Object
@@ -46,3 +59,4 @@ export default DataFormat_Object
 import Integer from '../DataTypes/Integer'
 import String from '../DataTypes/String'
 import Fragment from '../Fragment'
+import Inspect from '../Inspect'

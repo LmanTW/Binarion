@@ -14,7 +14,14 @@ const DataFormat_Integer: DataFormat.Template<number, { bodyLength: number }> = 
     const integer = Integer.readInteger(Reader)
 
     return (headerAttachment === 1) ? -integer : integer
-  } 
+  },
+
+  inspectName: () => 'Integer',
+  inspectChildren: (Reader) => {
+    Integer.readInteger(Reader)
+
+    return []
+  }
 }
 
 export default DataFormat_Integer

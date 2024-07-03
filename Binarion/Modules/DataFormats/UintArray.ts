@@ -52,7 +52,15 @@ const DataFormat_UintArray: DataFormat.Template<Uint8Array | Uint16Array | Uint3
 
       return array
     }
-  }
+  },
+
+  inspectName: (headerAttachment) => {
+    if (headerAttachment === 1) return 'UintArray (8)'
+    if (headerAttachment <= 2) return 'UintArray (16)' 
+
+    return 'UintArray (32)'
+  },
+  inspectChildren: () => []
 }
 
 export default DataFormat_UintArray
