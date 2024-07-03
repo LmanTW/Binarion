@@ -9,7 +9,9 @@
 > [!WARNING]
 > This project is still in it's early stages of development, so we may introduce some breaking changes to the API and the data format.
 
-## About Binarion
+# Binarion
+
+[![npm version](https://img.shields.io/npm/v/binarion)](https://www.npmjs.com/package/binarion) [![npm downloads](https://img.shields.io/npm/dm/binarion)](https://www.npmjs.com/package/binarion)
 
 > [!IMPORTANT]
 > Binarion is not a competitor to [JSON](https://zh.wikipedia.org/wiki/JSON), it is not faster or more compact than [JSON](https://zh.wikipedia.org/wiki/JSON) most of the time.
@@ -35,3 +37,4 @@ Binarion is designed to store [JavaScript](https://en.wikipedia.org/wiki/JavaScr
 | Map        | `Map`                                       | ✅          |
 | Set        | `Set`                                       | ✅          |
 | Function   | `Function`                                  | ❌          |
+
