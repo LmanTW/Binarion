@@ -1,9 +1,9 @@
 <img src="./Assets/Visuals/Banner.svg"></img>
 
 <p align="center">
-  <a href="./Documents/GetStarted.md">Get Started</a> | 
-  <a href="./Documents/API.md">Documentation</a> | 
-  <a href="./Documents/Specification.md">Specification</a>
+  <a href="https://github.com/LmanTW/Binarion/blob/main/Documents/GetStarted.md">Get Started</a> | 
+  <a href="https://github.com/LmanTW/Binarion/blob/main/Documents/API.md">Documentation</a> | 
+  <a href="https://github.com/LmanTW/Binarion/blob/main/Documents/Specification.md">Specification</a>
 </p>
 
 > [!WARNING]
@@ -11,7 +11,7 @@
 
 ## About Binarion
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > Binarion is not a competitor to [JSON](https://zh.wikipedia.org/wiki/JSON), it is not faster or more compact than [JSON](https://zh.wikipedia.org/wiki/JSON) most of the time.
 
 Binarion is designed to store [JavaScript](https://en.wikipedia.org/wiki/JavaScript) objects that contain large TypedArray. For most use cases, using [JSON](https://zh.wikipedia.org/wiki/JSON) will be faster and more compact, but for some niche use cases, Binarion can be a good choice.

@@ -17,7 +17,7 @@ npm install binarion
 > * [Binarion.cjs](./Assets/Binarion.cjs) ([ECMAScript](https://en.wikipedia.org/wiki/ECMAScript))
 > * [Binarion.d.ts](./Assets/Binarion.d.ts) ([Type Definition](https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html))
 
-## Content
+## Contents
 
 * [Binarion](#binarion)
   * [save()](#save)
@@ -39,7 +39,7 @@ const Binarion = require('binarion') // For CommonJS.
 * `data: any` | The object you want to save.
 
 > [!NOTE]
-> Check out [Implemented Data Formats](../README.md#implemented-data-formats) to see what [JavaScript](https://en.wikipedia.org/wiki/JavaScript) objects are supported.
+> Check out [Supported Data Formats](https://github.com/LmanTW/Binarion/blob/main/README.md#supported-data-formats) to see what [JavaScript](https://en.wikipedia.org/wiki/JavaScript) objects are supported.
 
 > return `Uint8Array`
 
