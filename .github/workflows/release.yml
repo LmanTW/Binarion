@@ -1,0 +1,67 @@
+name: 'Release'
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        required: true
+        description: 'Version'
+        default: '0.0.0'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: 'Release'
+    runs-on: ubuntu-latest
+    
+    steps: 
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Release
+      id: release
+      uses: actions/create-release@latest
+
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      with:
+        prerelease: false
+        draft: false
+        
+        tag_name: v${{ github.event.inputs.version }}
+        release_name: v${{ github.event.inputs.version }}
+    - name: Upload Binarion.mjs
+      uses: actions/upload-release-asset@latest
+
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      with:
+        upload_url: ${{ steps.release.outputs.upload_url }}
+        asset_path: ./Assets/Binarion.mjs
+        asset_name: Binarion.mjs
+        asset_content_type: application/javascript
+    - name: Upload Binarion.cjs
+      uses: actions/upload-release-asset@latest
+
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      with:
+        upload_url: ${{ steps.release.outputs.upload_url }}
+        asset_path: ./Assets/Binarion.cjs
+        asset_name: Binarion.cjs
+        asset_content_type: application/javascript
+    - name: Upload Binarion.d.ts
+      uses: actions/upload-release-asset@latest
+
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      with:
+        upload_url: ${{ steps.release.outputs.upload_url }}
+        asset_path: ./Assets/Binarion.d.ts
+        asset_name: Binarion.d.ts
+        asset_content_type: application/javascript
