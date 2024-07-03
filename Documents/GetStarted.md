@@ -1,19 +1,25 @@
 # Get Started
 Get started with Binarion.
 
-1. Install Binarion
+##  Install Binarion
+
 ```
 npm install binarion
 ```
 
-2. Import Binarion
+## Import Binarion
+
 ```ts
 import Binarion from 'binarion' // For ECMAScript or TypeScript.
 
 const Binarion = require('binarion') // For CommonJS.
 ```
 
-3. Use Binarion
+> [!TIP]
+> You can also download Binarion straight into your project, check out [API Documentation](https://github.com/LmanTW/Binarion/blob/main/Documents/API.md#installation)
+
+## Use Binarion
+
 ```ts
 // Let's save a JavaScript object and save it into a file.
 

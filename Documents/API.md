@@ -2,7 +2,7 @@
 The API documentation of Binarion.
 
 > [!Note]
-> You can also check out the [Format Specification](./Specification.md] of you want to implement Binarion in other languages.
+> You can also check out the [Binarion Format Specification](./Specification.md) of you want to implement Binarion in other languages.
 
 ## Installation
 
