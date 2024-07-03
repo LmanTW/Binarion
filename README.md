@@ -1,44 +1,37 @@
-<img src="./Assets/Visual/Banner.svg"></img>
+<img src="./Assets/Visuals/Banner.svg"></img>
 
 <p align="center">
   <a href="./Documents/GetStarted.md">Get Started</a> | 
   <a href="./Documents/API.md">Documentation</a> | 
-  <a href="./Documents/FAQ.md">FAQ</a>
+  <a href="./Documents/Specification.md">Specification</a>
 </p>
 
 > [!WARNING]
-> This project is still in it's early development stage, so we may introduce some breaking changes to the API and the data format.
+> This project is still in it's early stages of development, so we may introduce some breaking changes to the API and the data format.
 
 ## About Binarion
-Binarion is designed for storing JavaScript objects that contain large amounts of data (Such as an ultra large `Uint8Array`). For most use cases, using [JSON](https://en.wikipedia.org/wiki/JSON) will be faster and more compact, but for some niche use cases, Binarion can be a good choice. For example:
 
-Using Binarion to store objects like the following one is going to be **way faster** compare to [JSON](https://en.wikipedia.org/wiki/JSON):
-```ts
-{
-  width: 1000,
-  height: 1000,
+> ![IMPORTANT]
+> Binarion is not a competitor to [JSON](https://zh.wikipedia.org/wiki/JSON), it is not faster or more compact than [JSON](https://zh.wikipedia.org/wiki/JSON) most of the time.
 
-  pixels: new Uint8Array(4000000) // (width * height) * 4
-}
-```
+Binarion is designed to store [JavaScript](https://en.wikipedia.org/wiki/JavaScript) objects that contain large TypedArray. For most use cases, using [JSON](https://zh.wikipedia.org/wiki/JSON) will be faster and more compact, but for some niche use cases, Binarion can be a good choice.
 
-## Supported Data Types
-> - [x] Null
-> - [x] Undefined
-> - [x] Boolean
-> - [x] Integer
-> - [ ] Float
-> - [x] String
- 
-> - [x] Array
-> - [x] Uint8Array
-> - [x] Uint16Array
-> - [x] Uint32Array
-> - [ ] Float64Array
+## Supported Data Formats
+> [!NOTE]
+> Haven't figured out how to implement `Float` and `FloatArray`, maybe someone can help me out.
 
-> - [ ] Object
-> - [ ] Map
-> - [ ] Set
-
-> - [ ] Function
-
+| Name       | Corresponding JavaScript Object             | Implemented |
+| ---        | ---                                         | ---         |
+| None       | `null`, `undefined`                         | ✅          |
+| Boolean    | `boolean`                                   | ✅          |
+| Integer    | `number`                                    | ✅          |
+| Float      | `float`                                     | ✅          |
+| String     | `string`                                    | ✅          |
+| Array      | `Array`                                     | ✅          |
+| BoolArray  |                                             | ❌          |
+| UintArray  | `Uint8Array`, `Uint16Array`, `Uint32Array`  | ✅          |
+| FloatArray | `Float32Array`, `Float64Array`              | ❌          |
+| Object     | `Object`                                    | ✅          |
+| Map        | `Map`                                       | ✅          |
+| Set        | `Set`                                       | ✅          |
+| Function   | `Function`                                  | ❌          |

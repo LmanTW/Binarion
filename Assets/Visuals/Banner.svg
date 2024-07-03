@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="-12.8 0 500 50" xmlns="http://www.w3.org/2000/svg">
+  <defs/>
+  <rect x="-12.777" width="500" height="100" style="fill: none;"/>
+  <text style="fill: rgb(235, 94, 40); font-family: monospace, sans-serif; font-size: 25px; font-weight: 700; white-space: pre;" x="194.142" y="27.148">Binarion</text>
+  <text style="fill: rgb(255, 252, 242); font-family: monospace, sans-serif; font-size: 12.5px; font-weight: 700; white-space: pre; transform-origin: 237.2px 0.95px;" x="99.563" y="42.735">A binary format for storing JavaScript objects.</text>
+</svg>

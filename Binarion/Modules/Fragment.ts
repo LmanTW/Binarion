@@ -1,61 +1,41 @@
 // Fragment
 export default class {
-  // Get The Length Of A Fragment
-  public static getFragmentLength (data: any): number {
-    const dataTypeID = Data.getDataTypeID(data)
+  // Get The Length Of The Fragment
+  public static getFragmentByteLength (data: any): number {
+    const dataFormatID = Data.getDataFormatID(data)
 
-    const bodyLength = Data.getDataType(dataTypeID).getBodyLength(data)
+    const bodyInfo = Data.getDataFormat(dataFormatID).getBodyInfo(data)
 
-    return this.getHeaderLength(bodyLength) + bodyLength
-  }
-
-  // Get The Length Of A Header
-  public static getHeaderLength (bodyLength: number) {
-    return 1 + Integer.getIntegerByteLength(bodyLength, false)
+    return 1 + bodyInfo.bodyLength
   }
 
   // Write A Fragment
-  public static writeFragment (bytes: Uint8Array, offset: number, data: any): number {
-    const dataTypeID = Data.getDataTypeID(data)
-    const dataType = Data.getDataType(dataTypeID)
+  public static writeFragment (Writer: Data.Writer, data: any): void {
+    const dataFormatID = Data.getDataFormatID(data)
+    const dataFormat = Data.getDataFormat(dataFormatID)
 
-    const bodyLength = dataType.getBodyLength(data)
+    const bodyInfo = dataFormat.getBodyInfo(data)
 
-    offset = this.writeHeader(bytes, offset, { dataTypeID, bodyLength })
+    this.writeHeader(Writer, { dataFormatID, attachment: dataFormat.getHeaderAttachemnt(data) })
 
-    dataType.writeBody(
-      bytes,
-      offset,
-
-      data,
-      bodyLength 
-    )
-
-    return offset + bodyLength
-  } 
+    dataFormat.writeBody(Writer, data, bodyInfo)
+  }
 
   // Write A Header
-  public static writeHeader (bytes: Uint8Array, offset: number, header: { dataTypeID: number, bodyLength: number }): number {
-    const byteLength = Integer.getIntegerByteLength(header.bodyLength, false)
-
-    bytes[offset] = Integer.integersToByte(header.dataTypeID, byteLength)
-    Integer.writeInteger(bytes, offset + 1, header.bodyLength, byteLength)
-
-    return offset + (1 + byteLength)
+  public static writeHeader (Writer: Data.Writer, header: { dataFormatID: number, attachment: number }): void {
+    Nibble.writeNibble(Writer, header.dataFormatID, header.attachment)
   }
 
   // Read A Fragment
-  public static readFragment (bytes: Uint8Array, offset: number): { offset: number, data: any } {
-    const [dataTypeID, bodyLengthIntegerByteLength] = Integer.byteToIntegers(bytes[offset]) 
+  public static readFragment (Reader: Data.Reader) {
+    const [dataFormatID, headerAttachment] = Nibble.readNibble(Reader)
 
-    const bodyLength = Integer.readInteger(bytes, offset + 1, bodyLengthIntegerByteLength)
-    
-    offset += 1 + bodyLengthIntegerByteLength
+    const dataFormat = Data.getDataFormat(dataFormatID)
 
-    return { offset: offset + bodyLength, data: Data.getDataType(dataTypeID).readBody(bytes, offset, offset + bodyLength) }
+    return dataFormat.readBody(Reader, headerAttachment)
   }
 }
 
-import Integer from './Tools/Integer'
-
+import Integer from './DataTypes/Integer'
+import Nibble from './DataTypes/Nibble'
 import Data from './Data'

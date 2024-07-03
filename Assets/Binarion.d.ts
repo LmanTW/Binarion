@@ -1,6 +1,6 @@
-declare const _default: {
-    save: (data: any) => Uint8Array;
-    load: (bytes: Uint8Array) => any;
-};
+declare namespace Binarion {
+    function save(data: any): Uint8Array;
+    function load(bytes: Uint8Array): any;
+}
 
-export { _default as default };
+export { Binarion as default };

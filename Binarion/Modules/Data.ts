@@ -2,92 +2,121 @@ import util from 'util'
 
 // Data
 namespace Data {
-  // A Data Type
-  export interface Type <T> {
-    id: number,
+  // Writer
+  export class Writer {
+    private _index: number = 0
+    private _bytes!: Uint8Array
 
-    getBodyLength: (data: T) => number,
-    
-    writeBody: (bytes: Uint8Array, offset: number, data: T, bodyLength: number) => void,
-    readBody: (bytes: Uint8Array, offset: number, end: number) => T
+    constructor (bytes: Uint8Array) {
+      this._bytes = bytes
+
+      this._bytes.set
+    }
+
+    public get index () {return this._index}
+    public get bytes () {return this._bytes}
+
+    // Write A Byte
+    public writeByte (byte: number): void {
+      this._bytes[this._index] = byte
+
+      this._index++
+    }
+
+    // Write Bytes
+    public writeBytes (bytes: Uint8Array): void {
+      this._bytes.set(bytes, this._index)
+
+      this._index += bytes.length
+    }
   }
 
-  // ID Of All The Data Types Supported By Binarion 
-  export enum TypesID {
-    // The ID is a 4-bit number, so the range is 0 ~ 15.
+  // Reader
+  export class Reader {
+    private _index: number = 0
+    private _bytes!: Uint8Array
 
-    Null = 0,
-    Undefined = 1,
-    Boolean = 2,
-    Integer = 3,
-    Float = 4,
-    String = 5,
- 
-    Array = 6,
-    Uint8Array = 7,
-    Uint16Array = 8,
-    Uint32Array = 9,
-    Float64Array = 10,
+    constructor (bytes: Uint8Array) {
+      this._bytes = bytes
 
-    Object = 11,
-    Map = 12,
-    Set = 13,
+      this._bytes.set
+    }
 
-    Function = 14
+    public get index () {return this._index}
+    public get bytes () {return this._bytes}
+
+    // Read A Byte
+    public readByte (): number {
+      const byte = this._bytes[this._index]
+
+      this._index++
+
+      return byte
+    }
+
+    // Read Bytes
+    public readBytes (length: number): Uint8Array {
+      const bytes = this._bytes.subarray(this._index, this._index + length)
+
+      this._index += length
+
+      return bytes
+    }
   }
 
-  // All The Data Types Supported By Binarion
-  export const Types: { [key: string]: Data.Type<any> } = {
-    DataType_Null,
-    DataType_Undefined,
-    DataType_Boolean,
-    DataType_Integer,
-    DataType_String,
+  // All Data Formats Supported By Binarion
+  export const Formats: DataFormat.Template<any, any>[] = [
+    DataFormat_UintArray,
+    DataFormat_Boolean,
+    DataFormat_Integer,
+    DataFormat_String,
+    DataFormat_Object,
+    DataFormat_Array,
+    DataFormat_None,
+    DataFormat_Set,
+    DataFormat_Map
+  ]
 
-    DataType_Array,
-    DataType_Uint8Array,
-    DataType_Uint16Array,
-    DataType_Uint32Array
-  } 
-
-  // Get Data Type ID
-  export function getDataTypeID (data: any): Data.TypesID {
-    if (data === null) return Data.TypesID.Null
-    if (data === undefined) return Data.TypesID.Undefined
-    if (typeof data === 'boolean') return Data.TypesID.Boolean
+  // Get The Data Format ID
+  export function getDataFormatID (data: any): DataFormat.ID {
+    if (data === null || data === undefined) return DataFormat.ID.None
+    if (typeof data === 'boolean') return DataFormat.ID.Boolean
     if (typeof data === 'number') {
       if (!Number.isNaN(data)) {
-        if (Number.isInteger(data)) return Data.TypesID.Integer
-        else return Data.TypesID.Float
+        if (Number.isInteger(data)) return DataFormat.ID.Integer
+        else return DataFormat.ID.Float
       } 
     }
-    if (typeof data === 'string') return Data.TypesID.String
-    if (Array.isArray(data)) return Data.TypesID.Array
-    if (data instanceof Uint8Array) return Data.TypesID.Uint8Array
-    if (data instanceof Uint16Array) return Data.TypesID.Uint16Array
-    if (data instanceof Object) return Data.TypesID.Object
+    if (typeof data === 'string') return DataFormat.ID.String
+    if (Array.isArray(data)) return DataFormat.ID.Array
+    if (data instanceof Uint8Array || data instanceof Uint16Array || data instanceof Uint32Array || data instanceof BigUint64Array) return DataFormat.ID.UintArray
+    if (data instanceof Set) return DataFormat.ID.Set
+    if (data instanceof Map) return DataFormat.ID.Map
+    if (data instanceof Object) return DataFormat.ID.Object
 
-    throw new Error(`Unsupported Data Type: <${typeof data}> (\x1B[34m${util.inspect(data)}\x1B[0m)`)
+    throw new Error(`Unsupported Data Format: <${typeof data}> (\x1B[34m${util.inspect(data)}\x1B[0m)`)
   }
 
-  // Get The Data Type
-  export function getDataType (id: number): Data.Type<any> {
-    for (let name in Data.Types) {
-      if (Data.Types[name].id === id) return Data.Types[name]
+  // Get The Data Format
+  export function getDataFormat (id: DataFormat.ID): DataFormat.Template<any, any> {
+    for (let format of Data.Formats) {
+      if (format.id === id) return format
     }
 
-    throw new Error(`Data Type Not Found: ${id}`)
+    throw new Error(`Data Format Not Found: "${id}"`)
   }
 }
 
 export default Data
 
-import DataType_Uint16Array from './DataTypes/Uint16Array'
-import DataType_Uint32Array from './DataTypes/Uint32Array'
-import DataType_Uint8Array from './DataTypes/Uint8Array'
-import DataType_Undefined from './DataTypes/Undefined'
-import DataType_Boolean from './DataTypes/Boolean'
-import DataType_Integer from './DataTypes/Integer'
-import DataType_String from './DataTypes/String'
-import DataType_Array from './DataTypes/Array'
-import DataType_Null from './DataTypes/Null'
+import DataFormat from '../Types/DataFormat'
+
+import DataFormat_UintArray from './DataFormats/UintArray'
+import DataFormat_Boolean from './DataFormats/Boolean'
+import DataFormat_Integer from './DataFormats/Integer'
+import DataFormat_String from './DataFormats/String'
+import DataFormat_Object from './DataFormats/Object'
+import DataFormat_Array from './DataFormats/Array'
+import DataFormat_None from './DataFormats/None'
+import DataFormat_Set from './DataFormats/Set'
+import DataFormat_Map from './DataFormats/Map'

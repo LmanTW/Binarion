@@ -1,5 +1,14 @@
-let string = ''
+import Binarion from '../../Binarion/API'
 
-for (let i = 0; i < 1000; i++) string += (Math.random() > 0.5) ? '0' : 1
+const data = 1234567890
 
-console.log(string)
+const bytes = Binarion.save(data)
+
+console.log('Binarion', bytes.length)
+console.log('JSON', Buffer.from(JSON.stringify(data)).length)
+
+// bytes.forEach((byte) => console.log(byte.toString(2).padStart(8, '0')))
+
+// console.log(bytes)
+
+console.log(Binarion.load(bytes))

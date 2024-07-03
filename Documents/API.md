@@ -1,8 +1,12 @@
 # Binarion API
 The API documentation of Binarion.
 
+> [!Note]
+> You can also check out the [Format Specification](./Specification.md] of you want to implement Binarion in other languages.
+
 ## Installation
-```bash
+
+```
 npm install binarion
 ```
 
@@ -13,25 +17,34 @@ npm install binarion
 > * [Binarion.cjs](./Assets/Binarion.cjs) ([ECMAScript](https://en.wikipedia.org/wiki/ECMAScript))
 > * [Binarion.d.ts](./Assets/Binarion.d.ts) ([Type Definition](https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html))
 
-## Contents
+## Content
+
 * [Binarion](#binarion)
   * [save()](#save)
   * [load()](#load)
 
-## Binarion
+# Binarion
+
 ```ts
-import Binarion from 'binarion'
+import Binarion from 'binarion' // For ECMAScript or TypeScript.
+
+const Binarion = require('binarion') // For CommonJS.
 ```
 
 ## save()
+
 ```ts
 .save(<data>) // Save a JavaScript object using the Binarion format.
 ```
 * `data: any` | The object you want to save.
 
+> [!NOTE]
+> Check out [Implemented Data Formats](../README.md#implemented-data-formats) to see what [JavaScript](https://en.wikipedia.org/wiki/JavaScript) objects are supported.
+
 > return `Uint8Array`
 
 ## load()
+
 ```ts
 .load(<bytes>) // Load a JavaScript object using the Binarion format.
 ```
