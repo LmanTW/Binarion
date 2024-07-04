@@ -5,7 +5,6 @@ The API documentation of Binarion.
 > You can also check out the [Binarion Format Specification](./Specification.md) of you want to implement Binarion in other languages.
 
 ## Installation
-
 ```
 npm install binarion
 ```
@@ -18,26 +17,21 @@ npm install binarion
 > * [Binarion.d.ts](./Assets/Binarion.d.ts) ([Type Definition](https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html))
 
 ## Contents
-
 * [Binarion](#binarion)
   * [save()](#save)
   * [load()](#load)
-  * [inspect()](#inspect)
-* [Inspect.FragmentInfo](#inspect.fragmentinfo)
-* [Inspect.Result](#inspect.result)
+* [Inspector](#inspector)
   * [Getters](#getters)
   * [format()](#format)
 
 # Binarion
-
 ```ts
-import Binarion from 'binarion' // For ECMAScript or TypeScript.
+import { Binarion } from 'binarion' // For ECMAScript or TypeScript.
 
-const Binarion = require('binarion') // For CommonJS.
+const { Binarion } = require('binarion') // For CommonJS.
 ```
 
 ## save()
-
 ```ts
 .save(<data>) // Save a JavaScript object using the Binarion format.
 ```
@@ -49,50 +43,39 @@ const Binarion = require('binarion') // For CommonJS.
 > return `Uint8Array`
 
 ## load()
-
 ```ts
 .load(<bytes>) // Load a JavaScript object using the Binarion format.
 ```
-* `bytes Uint8Array` | The data you want to use to load a JavaScript object.
+
+* `bytes: Uint8Array` | The data you want to use to load a JavaScript object.
 
 > return `any`
 
-## inspect()
-
+# Inspector
 ```ts
-.inspect(<bytes>) // Inspect A Binarion Data.
+import { Inspector } from 'binarion' // For ECMAScript or TypeScript.
+
+const { Inspector } = require('binarion') // For CommonJS.
+
+new Inspector(<bytes>, <options>)
 ```
 
-> return [InspectResult](#inspectresult)
-
-# Inspect.FragmentInfo
-
-The fragment inspect info.
-
-```ts
-{
-  dataFormatID: DataFormat.ID,
-  headerAttachment: number,
-
-  name: string,
-
-  fragmentLength: number
-  index: number,
-
-  children: Inspect.FragmentInfo[]
-}
-```
-
-# Inspect.Result
-
-The result of the inspection.
+* `bytes: Uint8Array` | The Binarion data you want to inspect.
+* `options?: Inspect.Options` | The options for the inspector.
+  * `depth?: number` | The depth of the inspection. `Default: Infinite`
 
 ## Getters
-* `fragmentInfo: fragmentInfo` | The fragment inspect info.
+* `childInspectResult: Inspect.Result` | The root fragment inspect result.
+  * `dataFormatID: string` | The data format ID of the fragment.
+  * `headerAttachment: number` | The header attachment of the fragment.
+  * `name: string` | The name of the fragment.
+  * `fragmentByteLength: number` | The byte length of the fragment.
+  * `index: number` | The index of the fragment.
+  * `children: Inspect.Result[]` | The children of the fragment..
 
-## format()
+# format()
 ```ts
-.format() // Format the fragment inspect info.
+.format() // Format the inspect result.
 ```
 
 > return `string`

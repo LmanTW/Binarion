@@ -12,7 +12,7 @@ namespace DataFormat {
     readBody: (Reader: Data.Reader, headerAttachment: number) => Type,
 
     inspectName: (headerAttachment: number) => string,
-    inspectChildren: (Reader: Data.Reader) => Inspect.FragmentInfo[]
+    inspectChildren: (Reader: Data.Reader, options: Inspect.Options, depth: number) => Inspect.Result[]
   }
 
   // IDs Of All Data Formats Supported By Binarion
@@ -40,5 +40,6 @@ namespace DataFormat {
 
 export default DataFormat
 
-import Inspect from '../Modules/Inspect'
+import Inspect from '../Types/Inspect'
+
 import Data from '../Modules/Data'

@@ -1,4 +1,4 @@
-import Binarion from '../../Binarion/API'
+import { Binarion, Inspector } from '../../Binarion/API'
 
 const data = {
   a: true,
@@ -15,4 +15,8 @@ console.log('JSON', Buffer.from(JSON.stringify(data)).length)
 
 // console.log(bytes)
 
-console.log(Binarion.inspect(bytes).format())
+console.log()
+
+const inspector = new Inspector(bytes)
+
+console.log(inspector.format())

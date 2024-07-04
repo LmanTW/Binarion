@@ -15,16 +15,10 @@ namespace Binarion {
   export function load (bytes: Uint8Array): any {
     return Fragment.readFragment(new Data.Reader(bytes))
   }
-
-  // Inspect Binarion Data
-  export function inspect (bytes: Uint8Array): Inspect.Result {
-    return new Inspect.Result(Fragment.inspectFragment(new Data.Reader(bytes))) 
-  }
 }
 
-export default Binarion
+export { Binarion, Inspector }
 
-
+import Inspector from './Modules/Inspector'
 import Fragment from './Modules/Fragment'
-import Inspect from './Modules/Inspect'
 import Data from './Modules/Data'

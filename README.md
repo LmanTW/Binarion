@@ -1,4 +1,8 @@
-<img src="https://raw.githubusercontent.com/LmanTW/Binarion/main/Assets/Visuals/Banner.svg"></img>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LmanTW/Binarion/main/Assets/Visuals/Banner_Dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/LmanTW/Binarion/main/Assets/Visuals/Banner_Light.svg">
+  <img alt="The banner" src="https://raw.githubusercontent.com/LmanTW/Binarion/main/Assets/Visuals/Banner_Dark.svg">
+</picture>
 
 <p align="center">
   <a href="https://github.com/LmanTW/Binarion/blob/main/Documents/GetStarted.md">Get Started</a> | 
@@ -10,8 +14,7 @@
 > This project is still in it's early stages of development, so we may introduce some breaking changes to the API and the data format.
 
 # Binarion
-
-[![npm version](https://img.shields.io/npm/v/binarion)](https://www.npmjs.com/package/binarion) [![npm downloads](https://img.shields.io/npm/dm/binarion)](https://www.npmjs.com/package/binarion)
+[![Npm version](https://img.shields.io/npm/v/binarion)](https://www.npmjs.com/package/binarion) [![Npm downloads](https://img.shields.io/npm/dm/binarion)](https://www.npmjs.com/package/binarion)
 
 > [!IMPORTANT]
 > Binarion is not a competitor to [JSON](https://zh.wikipedia.org/wiki/JSON), it is not faster or more compact than [JSON](https://zh.wikipedia.org/wiki/JSON) most of the time.

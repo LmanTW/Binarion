@@ -31,19 +31,20 @@ const DataFormat_Array: DataFormat.Template<Array<any>, { bodyLength: number, in
   },
 
   inspectName: () => 'Array',
-  inspectChildren: (Reader) => {
+  inspectChildren: (Reader, options, depth) => {
     const fragmentsInfo: Inspect.FragmentInfo[] = []
 
     const arrayLength = Integer.readInteger(Reader)
 
-    for (let i = 0; i < arrayLength; i++) fragmentsInfo.push(Fragment.inspectFragment(Reader))
+    for (let i = 0; i < arrayLength; i++) fragmentsInfo.push(Fragment.inspectFragment(Reader, options, depth + 1))
 
-    return fragmentsInfo
+    return (depth < options.depth) ? fragmentsInfo : []
   }
 }
 
 export default DataFormat_Array
 
+import Inspect from '../../Types/Inspect'
+
 import Integer from '../DataTypes/Integer'
 import Fragment from '../Fragment'
-import Inspect from '../Inspect'

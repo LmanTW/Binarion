@@ -51,20 +51,21 @@ const DataFormat_Map: DataFormat.Template<Map<any, any>, { bodyLength: number }>
   },
 
   inspectName: () => 'Map',
-  inspectChildren: (Reader) => {
+  inspectChildren: (Reader, options, depth) => {
     const fragmentsInfo: Inspect.FragmentInfo[] = []
 
     const mapSize = Integer.readInteger(Reader)
 
-    for (let i = 0; i < mapSize; i++) fragmentsInfo.push(Fragment.inspectFragment(Reader))
+    for (let i = 0; i < mapSize; i++) fragmentsInfo.push(Fragment.inspectFragment(Reader, options, depth + 1))
 
-    return fragmentsInfo
+    return (depth < options.depth) ? fragmentsInfo : []
   }
 }
 
 export default DataFormat_Map
 
+import Inspect from '../../Types/Inspect'
+
 import Integer from '../DataTypes/Integer'
 import String from '../DataTypes/String'
 import Fragment from '../Fragment'
-import Inspect from '../Inspect'

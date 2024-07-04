@@ -34,14 +34,14 @@ export default class {
   }
 
   // Inspect A Fragment
-  public static inspectFragment (Reader: Data.Reader): Inspect.FragmentInfo {
+  public static inspectFragment (Reader: Data.Reader, options: Inspect.Options, layer: number): Inspect.FragmentInfo {
     const index = Reader.index
 
     const [dataFormatID, headerAttachment] = Nibble.readNibble(Reader)
     
     const dataFormat = Data.getDataFormat(dataFormatID)
 
-    const children = Data.getDataFormat(dataFormatID).inspectChildren(Reader)
+    const children = Data.getDataFormat(dataFormatID).inspectChildren(Reader, options, layer)
 
     return {
       dataFormatID,
@@ -49,7 +49,7 @@ export default class {
 
       name: dataFormat.inspectName(headerAttachment),
 
-      fragmentLength: Reader.index - index,
+      fragmentByteLength: Reader.index - index,
       index,
 
       children
@@ -57,6 +57,7 @@ export default class {
   }
 }
 
+import Inspect from '../Types/Inspect'
+
 import Nibble from './DataTypes/Nibble'
-import Inspect from './Inspect'
 import Data from './Data'

@@ -32,7 +32,7 @@ declare namespace DataFormat {
         writeBody: (Writer: Data.Writer, data: Type, bodyInfo: BodyInfo) => void;
         readBody: (Reader: Data.Reader, headerAttachment: number) => Type;
         inspectName: (headerAttachment: number) => string;
-        inspectChildren: (Reader: Data.Reader) => Inspect.FragmentInfo[];
+        inspectChildren: (Reader: Data.Reader, options: Inspect.Options, depth: number) => Inspect.Result[];
     }
     enum ID {
         None = 0,
@@ -50,27 +50,34 @@ declare namespace DataFormat {
 }
 
 declare namespace Inspect {
-    interface FragmentInfo {
+    interface Options {
+        depth: number;
+    }
+    interface Options_Optional {
+        depth?: number;
+    }
+    interface Result {
         dataFormatID: DataFormat.ID;
         headerAttachment: number;
         name: string;
-        fragmentLength: number;
+        fragmentByteLength: number;
         index: number;
-        children: Inspect.FragmentInfo[];
+        children: Inspect.Result[];
     }
-    class Result {
-        private _fragmentInfo;
-        constructor(fragmentInfo: Inspect.FragmentInfo);
-        get fragmentInfo(): FragmentInfo;
-        format(): string;
-    }
-    function formatFragment(fragmentInfo: Inspect.FragmentInfo, layer: number): string;
+}
+
+declare class export_default{
+    private _options;
+    private _inspectResult;
+    constructor(bytes: Uint8Array, options?: Inspect.Options_Optional);
+    get fragmentInfo(): Inspect.Result;
+    format(): string;
+    private _formatFragmentInfo;
 }
 
 declare namespace Binarion {
     function save(data: any): Uint8Array;
     function load(bytes: Uint8Array): any;
-    function inspect(bytes: Uint8Array): Inspect.Result;
 }
 
-export { Binarion as default };
+export { Binarion, export_default as Inspector };

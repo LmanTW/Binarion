@@ -39,7 +39,7 @@ const DataFormat_Object: DataFormat.Template<{ [key: string]: any }, { bodyLengt
   },
 
   inspectName: () => 'Object',
-  inspectChildren: (Reader) => {
+  inspectChildren: (Reader, options, depth) => {
     const fragmentsInfo: Inspect.FragmentInfo[] = []
 
     const objectSize = Integer.readInteger(Reader)
@@ -47,16 +47,17 @@ const DataFormat_Object: DataFormat.Template<{ [key: string]: any }, { bodyLengt
     for (let i = 0; i < objectSize; i++) {
       String.readString(Reader)
 
-      fragmentsInfo.push(Fragment.inspectFragment(Reader))
+      fragmentsInfo.push(Fragment.inspectFragment(Reader, options, depth + 1))
     }
 
-    return fragmentsInfo
+    return (depth < options.depth) ? fragmentsInfo : []
   }
 }
 
 export default DataFormat_Object
 
+import Inspect from '../../Types/Inspect'
+
 import Integer from '../DataTypes/Integer'
 import String from '../DataTypes/String'
 import Fragment from '../Fragment'
-import Inspect from '../Inspect'

@@ -2,8 +2,9 @@
   "name": "binarion",
   "description": "A binary format for storing JavaScript objects.",
 
-  "version": "0.0.3",
+  "version": "0.0.4",
   "keywords": ["binary", "encoding", "decoding"],
+  "license": "MIT",
 
   "exports": {
     "import": "Assets/Binarion.mjs",

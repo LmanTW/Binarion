@@ -45,19 +45,20 @@ const DataFormat_Set: DataFormat.Template<Set<any>, { bodyLength: number }> = {
   },
 
   inspectName: () => 'Set',
-  inspectChildren: (Reader) => {
+  inspectChildren: (Reader, options, depth) => {
     const fragmentsInfo: Inspect.FragmentInfo[] = []
 
     const setSize = Integer.readInteger(Reader)
 
-    for (let i = 0; i < setSize; i++) fragmentsInfo.push(Fragment.inspectFragment(Reader))
+    for (let i = 0; i < setSize; i++) fragmentsInfo.push(Fragment.inspectFragment(Reader, options, depth + 1))
 
-    return fragmentsInfo
+    return (depth < options.depth) ? fragmentsInfo : []
   }
 }
 
 export default DataFormat_Set
 
+import Inspect from '../../Types/Inspect'
+
 import Integer from '../DataTypes/Integer'
 import Fragment from '../Fragment'
-import Inspect from '../Inspect'
