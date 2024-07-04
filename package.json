@@ -1,6 +1,7 @@
 {
   "name": "binarion",
   "description": "A binary format for storing JavaScript objects.",
+  "homepage": "https://github.com/LmanTW/Binarion",
 
   "version": "0.0.4",
   "keywords": ["binary", "encoding", "decoding"],
@@ -14,7 +15,8 @@
 
   "scripts": {
     "start": "tsx Scripts/Test/Main.ts",
-    "build": "tsx Scripts/Build/Main.ts"
+    "build": "tsx Scripts/Build/Main.ts",
+    "performace": "tsx Scripts/Performance/Main.ts"
   },
 
   "devDependencies": {

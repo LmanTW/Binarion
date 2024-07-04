@@ -41,7 +41,7 @@ const data = Binarion.save({
 fs.writeFileSync(path.join(__dirname, 'Data'), data)
 ```
 
-## Load JavaScripts
+## Load JavaScript Objects
 ```ts
 import { Binarion } from 'binarion'
 import path from 'path'
