@@ -16,7 +16,7 @@
   "scripts": {
     "start": "tsx Scripts/Test/Main.ts",
     "build": "tsx Scripts/Build/Main.ts",
-    "performace": "tsx Scripts/Performance/Main.ts"
+    "performance": "tsx Scripts/Performance/Main.ts"
   },
 
   "devDependencies": {

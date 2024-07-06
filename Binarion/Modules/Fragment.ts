@@ -34,7 +34,7 @@ export default class {
   }
 
   // Inspect A Fragment
-  public static inspectFragment (Reader: Data.Reader, options: Inspect.Options, layer: number): Inspect.FragmentInfo {
+  public static inspectFragment (Reader: Data.Reader, options: Inspect.Options, layer: number): Inspect.Result {
     const index = Reader.index
 
     const [dataFormatID, headerAttachment] = Nibble.readNibble(Reader)

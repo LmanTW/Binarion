@@ -9,8 +9,6 @@ namespace Data {
 
     constructor (bytes: Uint8Array) {
       this._bytes = bytes
-
-      this._bytes.set
     }
 
     public get index () {return this._index}

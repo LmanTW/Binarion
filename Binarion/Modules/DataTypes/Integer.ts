@@ -21,8 +21,8 @@ class Integer {
   public static getIntegerByteLength (integer: number): number {
     const value = (integer < 0) ? -integer : integer
 
-    for (let i = 0; i < 16; i++) {
-      if (value < Integer.getMaxIntegerValue(i)) return i
+    for (let i = 0; i < 8; i++) {
+      if (value < integerByteLengths[i]) return i
     }
 
     throw new Error(`Integer Out Of Range: ${integer}`)
@@ -59,6 +59,10 @@ class Integer {
     return Number(value)
   }
 }
+
+const integerByteLengths: number[] = []
+
+for (let i = 0; i < 8; i++) integerByteLengths.push(Integer.getMaxIntegerValue(i))
 
 export default Integer
 
