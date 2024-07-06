@@ -10,6 +10,18 @@ The Binarion format specification.
   * [Integer](#integer)
   * [String](#string)
 * [DataFormats](#dataformats)
+  * [None](#none)
+  * [Boolean](#boolean)
+  * [Integer](#integer-1)
+  * [Float](#float)
+  * [String](#string-1)
+  * [Array](#array)
+  * [BoolArray](#boolarray)
+  * [UintArray](#uintarray)
+  * [Object](#object)
+  * [Map](#map)
+  * [Set](#set)
+  * [Function](#function)
 
 # Fragment
 A fragment represents a [JavaScript](https://en.wikipedia.org/wiki/JavaScript) object and is composed by two parts, a [header](#header) and a [body](#body).

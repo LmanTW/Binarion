@@ -21,6 +21,10 @@
 
 Binarion is designed to store [JavaScript](https://en.wikipedia.org/wiki/JavaScript) objects that contain large TypedArray. For most use cases, using [JSON](https://zh.wikipedia.org/wiki/JSON) will be faster and more compact, but for some niche use cases, Binarion can be a good choice.
 
+* Store image pixel data with other information, like width and height.
+* Store world data for 2D sandbox game. (width, height, chunks, blocks, etc...)
+* ~~Store the state of [one million checkboxes](https://onemillioncheckboxes.com).~~
+
 ## Supported Data Formats
 > [!NOTE]
 > Haven't figured out how to implement `Float` and `FloatArray`, maybe someone can help me out.
