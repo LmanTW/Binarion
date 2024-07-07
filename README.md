@@ -14,7 +14,7 @@
 > This project is still in it's early stages of development, so we may introduce some breaking changes to the API and the data format.
 
 # Binarion
-[![Npm version](https://img.shields.io/npm/v/binarion)](https://www.npmjs.com/package/binarion) [![Npm downloads](https://img.shields.io/npm/dm/binarion)](https://www.npmjs.com/package/binarion)
+[![Npm version](https://img.shields.io/npm/v/binarion)](https://www.npmjs.com/package/binarion) [![Npm downloads](https://img.shields.io/npm/dm/binarion)](https://www.npmjs.com/package/binarion) [![CodeFactor grade](https://img.shields.io/codefactor/grade/github/LmanTW/Binarion)](https://www.codefactor.io/repository/github/lmantw/binarion/)
 
 > [!IMPORTANT]
 > Binarion is not a competitor to [JSON](https://zh.wikipedia.org/wiki/JSON), it is not faster or more compact than [JSON](https://zh.wikipedia.org/wiki/JSON) most of the time.

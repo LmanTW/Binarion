@@ -97,7 +97,7 @@ namespace Data {
 
   // Get The Data Format
   export function getDataFormat (id: DataFormat.ID): DataFormat.Template<any, any> {
-    for (let format of Data.Formats) {
+    for (const format of Data.Formats) {
       if (format.id === id) return format
     }
 
