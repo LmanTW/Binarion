@@ -46,7 +46,7 @@ const DataFormat_Set: DataFormat.Template<Set<any>, { bodyLength: number }> = {
 
   inspectName: () => 'Set',
   inspectChildren: (Reader, options, depth) => {
-    const fragmentsInfo: Inspect.FragmentInfo[] = []
+    const fragmentsInfo: Inspect.Result[] = []
 
     const setSize = Integer.readInteger(Reader)
 

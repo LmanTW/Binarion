@@ -4,7 +4,7 @@
   "homepage": "https://github.com/LmanTW/Binarion",
 
   "version": "0.0.5",
-  "keywords": ["binary", "encoding", "decoding"],
+  "keywords": ["binary", "encoding", "decoding", "data", "format"],
   "license": "MIT",
 
   "exports": {

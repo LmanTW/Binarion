@@ -40,7 +40,7 @@ const DataFormat_Object: DataFormat.Template<{ [key: string]: any }, { bodyLengt
 
   inspectName: () => 'Object',
   inspectChildren: (Reader, options, depth) => {
-    const fragmentsInfo: Inspect.FragmentInfo[] = []
+    const fragmentsInfo: Inspect.Result[] = []
 
     const objectSize = Integer.readInteger(Reader)
 

@@ -26,9 +26,6 @@ Binarion is designed to store [JavaScript](https://en.wikipedia.org/wiki/JavaScr
 * ~~Store the state of [one million checkboxes](https://onemillioncheckboxes.com).~~
 
 ## Supported Data Formats
-> [!NOTE]
-> Haven't figured out how to implement `Float` and `FloatArray`, maybe someone can help me out.
-
 | Name       | Corresponding JavaScript Object             | Implemented |
 | ---        | ---                                         | ---         |
 | None       | `null`, `undefined`                         | ✅          |

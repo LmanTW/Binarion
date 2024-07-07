@@ -40,7 +40,7 @@ Format (Bytes): `Info (Nibble)`
 > * `0010` | The attachment of the header. (2)
 
 ## Body
-A body contains the actual data, the format depends on the data format.
+A body contains the actual data, the format depends on the [data format](#dataformats).
 
 ## Data Types
 A data type is the most basic form of data in Binarion.
@@ -68,7 +68,7 @@ Format (Bits): `End Sign (1-bit)` | `Integer Data (7-bit)`
 A string contains a series of interers that represent unicode codes.
 
 Format (Bytes): `String Length` | `...Chat Codes`
-* `String Length (Integer)` | The length of thr string. (How many characters there are in the string.)
+* `String Length (Integer)` | The length of the string. (How many characters there are in the string.)
 * `...Char Codes (Integer)` | The unicode codes of the characters in the string.
 
 > [!NOTE]
@@ -77,3 +77,44 @@ Format (Bytes): `String Length` | `...Chat Codes`
 > * `11100001` | The first character. (97)
 > * `11100010` | The second character. (98)
 > * `11100011` | The third character. (99)
+
+
+# DataFormats
+A data format is a more complicated form of data in Binarion.
+
+## None
+The None data format has no body, the value is contained within the [fragment header](#header).
+
+| Header Attachment | Value     |
+| ---               | ---       |
+| 0                 | null      |
+| 1                 | undefined |
+
+## Boolean
+The Boolean data format has no body, the value is contained within the [fragment header](#header).
+
+| Header Attachment | Value |
+| ---               | ---   |
+| 0                 | false |
+| 1                 | true  |
+
+## Integer
+The Integer data format is just an [Integer](#integer).
+
+## Float
+
+> [!NOTE]
+> Haven't figured out how to implement `Float` and `FloatArray`, maybe someone can help me out.
+
+## String
+The String data format is just a [String](#string).
+
+## Array
+The Array data format contains a length and elements.
+
+Format (Bytes): `Array Length` | `...Elements`
+* `Array Length (Integer)` | The length of the array. (How many elements there are in the array.)
+* `...Elements (Fragment)` | The elements in the array.
+
+## BoolArray
+the BoolArray data format contains a length and elements.
