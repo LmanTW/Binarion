@@ -10,7 +10,7 @@ export default class {
   }
 
   // Write A Fragment
-  public static writeFragment (Writer: Data.Writer, data: any): void {
+  public static writeFragment (Writer: Data.Writer, data: DataFormat.Supported): void {
     const dataFormatID = Data.getDataFormatID(data)
     const dataFormat = Data.getDataFormat(dataFormatID)
 

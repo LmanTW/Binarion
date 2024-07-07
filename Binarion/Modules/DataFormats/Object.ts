@@ -29,7 +29,7 @@ const DataFormat_Object: DataFormat.Template<{ [key: number | string | symbol]: 
     }
   },
   readBody: (Reader) => {
-    const object: { [key: string]: any } = {}
+    const object: { [key: number | string | symbol]: DataFormat.Supported } = {}
 
     const objectSize = Integer.readInteger(Reader)
 
