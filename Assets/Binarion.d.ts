@@ -1,3 +1,20 @@
+declare namespace Inspect {
+    interface Options {
+        depth: number;
+    }
+    interface Options_Optional {
+        depth?: number;
+    }
+    interface Result {
+        dataFormatID: DataFormat.ID;
+        headerAttachment: number;
+        name: string;
+        fragmentByteLength: number;
+        index: number;
+        children: Inspect.Result[];
+    }
+}
+
 declare namespace Data {
     class Writer {
         private _index;
@@ -47,23 +64,9 @@ declare namespace DataFormat {
         Set = 13,
         Function = 14
     }
-}
-
-declare namespace Inspect {
-    interface Options {
-        depth: number;
-    }
-    interface Options_Optional {
-        depth?: number;
-    }
-    interface Result {
-        dataFormatID: DataFormat.ID;
-        headerAttachment: number;
-        name: string;
-        fragmentByteLength: number;
-        index: number;
-        children: Inspect.Result[];
-    }
+    type Supported = null | undefined | boolean | number | string | Array<DataFormat.Supported> | Uint8Array | Uint16Array | Uint32Array | {
+        [key: number | string | symbol]: DataFormat.Supported;
+    } | Map<number | string | symbol, DataFormat.Supported> | Set<DataFormat.Supported> | Function;
 }
 
 declare class export_default{
@@ -76,8 +79,8 @@ declare class export_default{
 }
 
 declare namespace Binarion {
-    function save(data: any): Uint8Array;
-    function load(bytes: Uint8Array): any;
+    function save(data: DataFormat.Supported): Uint8Array;
+    function load(bytes: Uint8Array): DataFormat.Supported;
 }
 
 export { Binarion, export_default as Inspector };

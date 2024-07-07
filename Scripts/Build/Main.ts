@@ -52,7 +52,7 @@ async function start (): Promise<void> {
 
   const filesPath = [path.join(__dirname, 'Cache', 'API.js'), path.join(__dirname, 'Cache', 'API.mjs')]
 
-  for (let filePath of filesPath) fs.writeFileSync(filePath, (await minify(fs.readFileSync(filePath, 'utf8'))).code!)
+  for (const filePath of filesPath) fs.writeFileSync(filePath, (await minify(fs.readFileSync(filePath, 'utf8'))).code!)
 
   console.log(` \x1b[32m🗜️ Successfully Minified Binarion\x1b[0m\n`)
   

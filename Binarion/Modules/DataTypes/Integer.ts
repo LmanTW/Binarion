@@ -45,7 +45,7 @@ class Integer {
     let offset: number = 0
 
     while (true) {
-      let byte = Reader.readByte() 
+      const byte = Reader.readByte() 
 
       if (byte >> 7 === 1) {
         value |= (BigInt(byte) & 0b01111111n) << BigInt(offset)

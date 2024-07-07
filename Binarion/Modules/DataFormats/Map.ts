@@ -1,7 +1,7 @@
 import DataFormat from '../../Types/DataFormat'
 
 // The Map Data Format
-const DataFormat_Map: DataFormat.Template<Map<any, any>, { bodyLength: number }> = {
+const DataFormat_Map: DataFormat.Template<Map<number | string | symbol, DataFormat.Supported>, { bodyLength: number }> = {
   id: DataFormat.ID.Map,
 
   getHeaderAttachemnt: () => 0,
@@ -52,7 +52,7 @@ const DataFormat_Map: DataFormat.Template<Map<any, any>, { bodyLength: number }>
 
   inspectName: () => 'Map',
   inspectChildren: (Reader, options, depth) => {
-    const fragmentsInfo: Inspect.FragmentInfo[] = []
+    const fragmentsInfo: Inspect.Result[] = []
 
     const mapSize = Integer.readInteger(Reader)
 

@@ -36,6 +36,9 @@ namespace DataFormat {
 
     Function = 14
   }
+  
+  // Supported Data Foramts
+  export type Supported = null | undefined | boolean | number | string | Array<DataFormat.Supported> | Uint8Array | Uint16Array | Uint32Array | { [key: number | string | symbol]: DataFormat.Supported } | Map<number | string | symbol, DataFormat.Supported> | Set<DataFormat.Supported> | Function
 }
 
 export default DataFormat

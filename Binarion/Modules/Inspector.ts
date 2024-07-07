@@ -27,7 +27,7 @@ export default class {
 
     string += '  '.repeat(layer) + `- ${inspectResult.name} [${inspectResult.fragmentByteLength} Bytes]`
 
-    for (let childInspectResult of inspectResult.children) string += `\n${this._formatFragmentInfo(childInspectResult, layer + 1)}`
+    for (const childInspectResult of inspectResult.children) string += `\n${this._formatFragmentInfo(childInspectResult, layer + 1)}`
 
     return string
   }

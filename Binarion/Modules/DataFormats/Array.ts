@@ -1,7 +1,7 @@
 import DataFormat from '../../Types/DataFormat'
 
 // The Array Data Format
-const DataFormat_Array: DataFormat.Template<Array<any>, { bodyLength: number, integerByteLength: number }> = {
+const DataFormat_Array: DataFormat.Template<Array<DataFormat.Supported>, { bodyLength: number, integerByteLength: number }> = {
   id: DataFormat.ID.Array,
 
   getHeaderAttachemnt: () => 0,
@@ -21,11 +21,11 @@ const DataFormat_Array: DataFormat.Template<Array<any>, { bodyLength: number, in
     for (const element of data) Fragment.writeFragment(Writer, element)
   },
   readBody: (Reader) => {
-    const array: any[] = []
+    const array: DataFormat.Supported[] = []
 
     const arrayLength = Integer.readInteger(Reader)
 
-    for (const i = 0; i < arrayLength; i++) array.push(Fragment.readFragment(Reader))
+    for (let i = 0; i < arrayLength; i++) array.push(Fragment.readFragment(Reader))
 
     return array
   },

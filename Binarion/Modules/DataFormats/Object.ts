@@ -1,7 +1,7 @@
 import DataFormat from '../../Types/DataFormat'
 
 // The Object Data Format
-const DataFormat_Object: DataFormat.Template<{ [key: string]: any }, { bodyLength: number }> = {
+const DataFormat_Object: DataFormat.Template<{ [key: number | string | symbol]: DataFormat.Supported }, { bodyLength: number }> = {
   id: DataFormat.ID.Object,
 
   getHeaderAttachemnt: () => 0,
@@ -10,7 +10,7 @@ const DataFormat_Object: DataFormat.Template<{ [key: string]: any }, { bodyLengt
 
     const keys = Object.keys(data)
 
-    for (let key of keys) {
+    for (const key of keys) {
       bodyLength += String.getStringByteLength(key)
       bodyLength += Fragment.getFragmentByteLength(data[key])
     }
@@ -23,7 +23,7 @@ const DataFormat_Object: DataFormat.Template<{ [key: string]: any }, { bodyLengt
 
     Integer.writeInteger(Writer, keys.length, Integer.getIntegerByteLength(keys.length))
 
-    for (let key of keys) {
+    for (const key of keys) {
       String.writeString(Writer, key)
       Fragment.writeFragment(Writer, data[key])
     }

@@ -1,7 +1,7 @@
 import DataFormat from '../../Types/DataFormat'
 
 // The Set Data Format
-const DataFormat_Set: DataFormat.Template<Set<any>, { bodyLength: number }> = {
+const DataFormat_Set: DataFormat.Template<Set<DataFormat.Supported>, { bodyLength: number }> = {
   id: DataFormat.ID.Set,
 
   getHeaderAttachemnt: () => 0,
@@ -35,7 +35,7 @@ const DataFormat_Set: DataFormat.Template<Set<any>, { bodyLength: number }> = {
     }
   },
   readBody: (Reader) => {
-    const set = new Set()
+    const set: Set<DataFormat.Supported> = new Set()
 
     const setSize = Integer.readInteger(Reader)
 

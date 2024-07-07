@@ -1,7 +1,7 @@
 // Fragment
 export default class {
   // Get The Length Of The Fragment
-  public static getFragmentByteLength (data: any): number {
+  public static getFragmentByteLength (data: DataFormat.Supported): number {
     const dataFormatID = Data.getDataFormatID(data)
 
     const bodyInfo = Data.getDataFormat(dataFormatID).getBodyInfo(data)
@@ -27,7 +27,7 @@ export default class {
   }
 
   // Read A Fragment
-  public static readFragment (Reader: Data.Reader): any {
+  public static readFragment (Reader: Data.Reader): DataFormat.Supported {
     const [dataFormatID, headerAttachment] = Nibble.readNibble(Reader)
 
     return Data.getDataFormat(dataFormatID).readBody(Reader, headerAttachment)
@@ -57,6 +57,7 @@ export default class {
   }
 }
 
+import DataFormat from '../Types/DataFormat'
 import Inspect from '../Types/Inspect'
 
 import Nibble from './DataTypes/Nibble'
