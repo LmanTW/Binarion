@@ -31,7 +31,7 @@ A fragment represents a [JavaScript](https://en.wikipedia.org/wiki/JavaScript) o
 A header contains the information about the body.
 
 Format (Bytes): `Info (Nibble)`
-* `Info (Nibble)` - `Data Format ID` | `Header Attachment`
+* `Info (Nibble)` (`Data Format ID` | `Header Attachment`)
   * `Data Format ID (4-bit)` | The ID of the data format.
   * `Header Attachment (4-bit)` | The attachment of the header.
 
@@ -45,6 +45,10 @@ A body contains the actual data, the format depends on the [data format](#datafo
 
 ## Data Types
 A data type is the most basic form of data in Binarion.
+
+* [Nibble](#nibble)
+* [Integer](#integer)
+* [String](#string)
 
 ## Nibble
 A nibble is one byte and contains two 4-bit integer.
@@ -79,9 +83,22 @@ Format (Bytes): `String Length` | `...Chat Codes`
 > * `11100010` | The second character. (98)
 > * `11100011` | The third character. (99)
 
-
 # DataFormats
 A data format is a more complicated form of data in Binarion.
+
+* [None](#none)
+* [Boolean](#boolean)
+* [Integer](#integer-1)
+* [Float](#float)
+* [String](#string-1)
+* [Array](#array)
+* [BoolArray](#boolarray)
+* [UintArray](#uintarray)
+* [FloatArray](#floatarray)
+* [Object](#object)
+* [Map](#map)
+* [Set](#set)
+* [Function](#function)
 
 ## None
 The None data format has no body, the value is contained within the [fragment header](#header).
