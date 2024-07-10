@@ -76,7 +76,7 @@ namespace Data {
   ]
 
   // Get The Data Format ID
-  export function getDataFormatID (data: any): DataFormat.ID {
+  export function getDataFormatID (data: DataFormat.Supported): DataFormat.ID {
     if (data === null || data === undefined) return DataFormat.ID.None
     if (typeof data === 'boolean') return DataFormat.ID.Boolean
     if (typeof data === 'number') {

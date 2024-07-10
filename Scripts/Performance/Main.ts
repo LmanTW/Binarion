@@ -20,7 +20,7 @@ session.post('Profiler.enable', () => {
 
     const start = performance.now()
 
-    Binarion.save(data)
+    Binarion.load(Binarion.save(data)) 
 
     console.log(Math.round(performance.now() - start))
 

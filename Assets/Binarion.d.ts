@@ -35,7 +35,7 @@ declare namespace Data {
         readBytes(length: number): Uint8Array;
     }
     const Formats: DataFormat.Template<any, any>[];
-    function getDataFormatID(data: any): DataFormat.ID;
+    function getDataFormatID(data: DataFormat.Supported): DataFormat.ID;
     function getDataFormat(id: DataFormat.ID): DataFormat.Template<any, any>;
 }
 

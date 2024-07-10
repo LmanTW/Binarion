@@ -44,7 +44,7 @@ class Integer {
     let value: bigint = 0n
     let offset: number = 0
 
-    while (true) {
+    while (Reader.index < Reader.bytes.length) {
       const byte = Reader.readByte() 
 
       if (byte >> 7 === 1) {
