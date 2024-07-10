@@ -171,7 +171,7 @@ The size of the uint can range from 1 to 8 bytes.
 ## Object
 The Object data format contains a size and chunks.
 
-Format (Bytes): `Object Size` | '...Chunks'
+Format (Bytes): `Object Size` | `...Chunks`
 * `Object Size (Integer)` | The size of the object.
 * `...Chunks` | The elements in the object.
   * `Name (String)` | `Data (Fragment)`
@@ -179,7 +179,7 @@ Format (Bytes): `Object Size` | '...Chunks'
 ## Map
 The Map data format contains a size and chunks.
 
-Format (Bytes): `Map Size` | '...Chunks'
+Format (Bytes): `Map Size` | `...Chunks`
 * `Map Size (Integer)` | The size of the map.
 * `...Chunks` | The elements in the map.
   * `Name (String)` | `Data (Fragment)`
