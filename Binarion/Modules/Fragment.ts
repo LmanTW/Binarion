@@ -1,10 +1,10 @@
 // Fragment
 export default class {
   // Get The Length Of The Fragment
-  public static getFragmentByteLength (data: DataFormat.Supported): number {
+  public static getFragmentByteLength (Cache: Cache, data: DataFormat.Supported): number {
     const dataFormatID = Data.getDataFormatID(data)
 
-    const bodyInfo = Data.getDataFormat(dataFormatID).getBodyInfo(data)
+    const bodyInfo = Data.getDataFormat(dataFormatID).getBodyInfo(Cache, data)
 
     return 1 + bodyInfo.bodyLength
   }
@@ -14,7 +14,7 @@ export default class {
     const dataFormatID = Data.getDataFormatID(data)
     const dataFormat = Data.getDataFormat(dataFormatID)
 
-    const bodyInfo = dataFormat.getBodyInfo(data)
+    const bodyInfo = dataFormat.getBodyInfo(Writer.Cache, data)
 
     this.writeHeader(Writer, { dataFormatID, attachment: dataFormat.getHeaderAttachemnt(data) })
 
@@ -61,4 +61,5 @@ import DataFormat from '../Types/DataFormat'
 import Inspect from '../Types/Inspect'
 
 import Nibble from './DataTypes/Nibble'
+import Cache from './CacheManager'
 import Data from './Data'

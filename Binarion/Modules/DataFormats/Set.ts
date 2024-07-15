@@ -5,7 +5,7 @@ const DataFormat_Set: DataFormat.Template<Set<DataFormat.Supported>, { bodyLengt
   id: DataFormat.ID.Set,
 
   getHeaderAttachemnt: () => 0,
-  getBodyInfo: (data) => {
+  getBodyInfo: (_, data) => {
     let bodyLength = 0
 
     const iterator = data.keys()

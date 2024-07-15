@@ -11,7 +11,7 @@ const DataFormat_UintArray: DataFormat.Template<Uint8Array | Uint16Array | Uint3
 
     return 1
   },
-  getBodyInfo: (data) => {
+  getBodyInfo: (_, data) => {
     const integerByteLength = Integer.getIntegerByteLength(data.length)
 
     let elementByteLength = 1

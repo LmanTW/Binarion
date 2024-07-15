@@ -2,9 +2,11 @@
 namespace Binarion {
   // Save A JavaScript Object
   export function save (data: DataFormat.Supported): Uint8Array {
-    const bytes = new Uint8Array(Fragment.getFragmentByteLength(data))
+    const Cache = new CacheManager()
 
-    const Writer = new Data.Writer(bytes)
+    const bytes = new Uint8Array(Fragment.getFragmentByteLength(Cache, data))
+
+    const Writer = new Data.Writer(Cache, bytes)
 
     Fragment.writeFragment(Writer, data)
 
@@ -21,6 +23,7 @@ export { Binarion, Inspector }
 
 import DataFormat from './Types/DataFormat'
 
+import CacheManager from './Modules/CacheManager'
 import Inspector from './Modules/Inspector'
 import Fragment from './Modules/Fragment'
 import Data from './Modules/Data'

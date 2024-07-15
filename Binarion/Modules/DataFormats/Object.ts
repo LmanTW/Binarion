@@ -5,14 +5,14 @@ const DataFormat_Object: DataFormat.Template<{ [key: number | string | symbol]: 
   id: DataFormat.ID.Object,
 
   getHeaderAttachemnt: () => 0,
-  getBodyInfo: (data) => {
+  getBodyInfo: (Cache, data) => {
     let bodyLength = 0
 
     const keys = Object.keys(data)
 
     for (const key of keys) {
-      bodyLength += String.getStringByteLength(key)
-      bodyLength += Fragment.getFragmentByteLength(data[key])
+      bodyLength += String.getStringByteLength(Cache, key)
+      bodyLength += Fragment.getFragmentByteLength(Cache, data[key])
     }
 
     return { bodyLength: Integer.getIntegerByteLength(keys.length) + bodyLength }

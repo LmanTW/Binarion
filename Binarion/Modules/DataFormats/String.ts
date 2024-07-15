@@ -5,8 +5,8 @@ const DataFormat_String: DataFormat.Template<string, { bodyLength: number }> = {
   id: DataFormat.ID.String,
 
   getHeaderAttachemnt: () => 0,
-  getBodyInfo: (data) => {
-    return { bodyLength: String.getStringByteLength(data) }
+  getBodyInfo: (Cache, data) => {
+    return { bodyLength: String.getStringByteLength(Cache, data) }
   },
 
   writeBody: (Writer, data) => String.writeString(Writer, data),

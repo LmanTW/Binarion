@@ -5,10 +5,10 @@ const DataFormat_Array: DataFormat.Template<Array<DataFormat.Supported>, { bodyL
   id: DataFormat.ID.Array,
 
   getHeaderAttachemnt: () => 0,
-  getBodyInfo: (data) => {
+  getBodyInfo: (Cache, data) => {
     let bodyLength = 0
 
-    for (const element of data) bodyLength += Fragment.getFragmentByteLength(element)
+    for (const element of data) bodyLength += Fragment.getFragmentByteLength(Cache, element)
 
     const integerByteLength = Integer.getIntegerByteLength(data.length)
 

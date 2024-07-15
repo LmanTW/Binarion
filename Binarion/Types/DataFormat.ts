@@ -6,7 +6,7 @@ namespace DataFormat {
 
     getHeaderAttachemnt: (data: Type) => number,
     // The attachment needs to stay within 4-bit.
-    getBodyInfo: (data: Type) => BodyInfo,
+    getBodyInfo: (Cache: CacheManager, data: Type) => BodyInfo,
     
     writeBody: (Writer: Data.Writer, data: Type, bodyInfo: BodyInfo) => void,
     readBody: (Reader: Data.Reader, headerAttachment: number) => Type,
@@ -45,4 +45,5 @@ export default DataFormat
 
 import Inspect from '../Types/Inspect'
 
+import CacheManager from '../Modules/CacheManager'
 import Data from '../Modules/Data'

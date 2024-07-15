@@ -3,7 +3,7 @@
   "description": "A binary format for storing JavaScript objects.",
   "homepage": "https://github.com/LmanTW/Binarion",
 
-  "version": "0.0.9",
+  "version": "0.1.0",
   "keywords": ["binary", "encoding", "decoding", "data", "format"],
   "license": "MIT",
 
@@ -16,7 +16,7 @@
   "scripts": {
     "start": "tsx Scripts/Test/Main.ts",
     "build": "tsx Scripts/Build/Main.ts",
-    "performance": "tsx Scripts/Performance/Main.ts"
+    "performance": "tsx --trace-warnings Scripts/Performance/Main.ts"
   },
 
   "devDependencies": {

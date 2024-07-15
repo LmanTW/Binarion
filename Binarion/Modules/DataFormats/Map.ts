@@ -5,7 +5,7 @@ const DataFormat_Map: DataFormat.Template<Map<number | string | symbol, DataForm
   id: DataFormat.ID.Map,
 
   getHeaderAttachemnt: () => 0,
-  getBodyInfo: (data) => {
+  getBodyInfo: (Cache, data) => {
     let bodyLength = 0
 
     const iterator = data.keys()
@@ -14,7 +14,7 @@ const DataFormat_Map: DataFormat.Template<Map<number | string | symbol, DataForm
       const result = iterator.next()
 
       if (result.value !== undefined) {
-        bodyLength += String.getStringByteLength(result.value)
+        bodyLength += String.getStringByteLength(Cache, result.value)
         bodyLength += Fragment.getFragmentByteLength(data.get(result.value))
       }
 

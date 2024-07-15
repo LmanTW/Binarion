@@ -5,7 +5,7 @@ const DataFormat_Integer: DataFormat.Template<number, { bodyLength: number }> = 
   id: DataFormat.ID.Integer,
 
   getHeaderAttachemnt: (data) => (data < 0) ? 1 : 0,
-  getBodyInfo: (data) => {
+  getBodyInfo: (_, data) => {
     return { bodyLength: Integer.getIntegerByteLength(data) }
   },
 

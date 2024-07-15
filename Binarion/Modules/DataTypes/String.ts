@@ -1,25 +1,49 @@
 // String
 export default class {
   // Get String Byte Length
-  public static getStringByteLength (string: string): number {
-    let byteLength: number = 0
+  public static getStringByteLength (Cache: Cache, string: string): number {
+    if (!Cache.hasGroup('stringByteLength')) Cache.createGroup('stringByteLength')
 
-    for (let i = 0; i < string.length; i++) byteLength += Integer.getIntegerByteLength(string.charCodeAt(i))
+    let byteLength = Cache.getCache<number>('stringByteLength', string)
+
+    if (byteLength === undefined) {
+      byteLength = 0
+
+      for (let i = 0; i < string.length; i++) byteLength += Integer.getIntegerByteLength(string.charCodeAt(i))
+
+      Cache.setCache('stringByteLength', string, byteLength)
+    }
 
     return Integer.getIntegerByteLength(string.length) + byteLength
   }
 
   // Write A String
   public static writeString (Writer: Data.Writer, string: string): void {
-    const stringLength = string.length
-    
-    Integer.writeInteger(Writer, stringLength, Integer.getIntegerByteLength(stringLength))
+    if (!Writer.Cache.hasGroup('stringBody')) Writer.Cache.createGroup('stringBody')
 
-    for (let i = 0; i < string.length; i++) {
-      const charCode = string.charCodeAt(i)
+    let bytes = Writer.Cache.getCache<Uint8Array>('stringBody', string)
 
-      Integer.writeInteger(Writer, charCode, Integer.getIntegerByteLength(charCode))
+    if (bytes === undefined) {
+      bytes = new Uint8Array(this.getStringByteLength(Writer.Cache, string))
+
+      const stringLengthIntegerByteLength = Integer.getIntegerByteLength(string.length)
+
+      bytes.set(Integer.getIntegerBody(Writer.Cache, string.length, stringLengthIntegerByteLength), 0)
+
+      let offset = stringLengthIntegerByteLength
+
+      for (let i = 0; i < string.length; i++) {
+        const charCode = string.charCodeAt(i)
+
+        const integerBody = Integer.getIntegerBody(Writer.Cache, charCode, Integer.getIntegerByteLength(charCode))
+
+        bytes.set(integerBody, offset)
+
+        offset += integerBody.length
+      }
     }
+
+    Writer.writeBytes(bytes)
   }
 
   // Read A String
@@ -34,5 +58,6 @@ export default class {
   }
 }
 
+import Cache from '../CacheManager'
 import Integer from './Integer'
 import Data from '../Data'

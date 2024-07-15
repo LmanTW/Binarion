@@ -7,8 +7,12 @@ namespace Data {
     private _index: number = 0
     private _bytes!: Uint8Array
 
-    constructor (bytes: Uint8Array) {
+    public Cache!: CacheManager
+
+    constructor (Cache: CacheManager, bytes: Uint8Array) {
       this._bytes = bytes
+
+      this.Cache = Cache
     }
 
     public get index () {return this._index}
@@ -118,3 +122,5 @@ import DataFormat_Array from './DataFormats/Array'
 import DataFormat_None from './DataFormats/None'
 import DataFormat_Set from './DataFormats/Set'
 import DataFormat_Map from './DataFormats/Map'
+import CacheManager from './CacheManager'
+
