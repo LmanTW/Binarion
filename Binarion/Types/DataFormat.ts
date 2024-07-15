@@ -12,7 +12,7 @@ namespace DataFormat {
     readBody: (Reader: Data.Reader, headerAttachment: number) => Type,
 
     inspectName: (headerAttachment: number) => string,
-    inspectChildren: (Reader: Data.Reader, options: Inspect.Options, depth: number) => Inspect.Result[]
+    inspectChildren: (Reader: Data.Reader, headerAttachment: number, options: Inspect.Options, depth: number) => Inspect.Result[]
   }
 
   // IDs Of All Data Formats Supported By Binarion

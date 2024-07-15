@@ -51,7 +51,7 @@ const DataFormat_Map: DataFormat.Template<Map<number | string | symbol, DataForm
   },
 
   inspectName: () => 'Map',
-  inspectChildren: (Reader, options, depth) => {
+  inspectChildren: (Reader, _, options, depth) => {
     const fragmentsInfo: Inspect.Result[] = []
 
     const mapSize = Integer.readInteger(Reader)

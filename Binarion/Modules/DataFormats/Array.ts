@@ -31,7 +31,7 @@ const DataFormat_Array: DataFormat.Template<Array<DataFormat.Supported>, { bodyL
   },
 
   inspectName: () => 'Array',
-  inspectChildren: (Reader, options, depth) => {
+  inspectChildren: (Reader, _, options, depth) => {
     const fragmentsInfo: Inspect.Result[] = []
 
     const arrayLength = Integer.readInteger(Reader)

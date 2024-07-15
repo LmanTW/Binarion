@@ -16,7 +16,7 @@ export default class {
 
   public get fragmentInfo () {return this._inspectResult}
 
-  // Format The Inspect Result
+  // Format The Result Of The Inspection
   public format (): string {
     return this._formatFragmentInfo(this._inspectResult, 0)
   }

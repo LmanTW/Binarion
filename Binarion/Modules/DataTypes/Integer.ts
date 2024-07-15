@@ -21,7 +21,7 @@ class Integer {
   public static getIntegerByteLength (integer: number): number {
     const value = (integer < 0) ? -integer : integer
 
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 4; i++) {
       if (value < integerByteLengths[i]) return i
     }
 

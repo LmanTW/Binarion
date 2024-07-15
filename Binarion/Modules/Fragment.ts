@@ -41,7 +41,7 @@ export default class {
     
     const dataFormat = Data.getDataFormat(dataFormatID)
 
-    const children = Data.getDataFormat(dataFormatID).inspectChildren(Reader, options, layer)
+    const children = Data.getDataFormat(dataFormatID).inspectChildren(Reader, headerAttachment, options, layer)
 
     return {
       dataFormatID,

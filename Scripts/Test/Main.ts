@@ -1,6 +1,6 @@
 import { Binarion, Inspector } from '../../Binarion/API'
 
-const data = new Uint16Array([100000, 200000, 300000])
+const data = { a: true, b: 123, c: new Uint16Array([100000, 200000, 300000, 400000, 500000]) } 
 
 const bytes = Binarion.save(data)
 

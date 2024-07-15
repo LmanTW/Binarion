@@ -58,7 +58,7 @@ Format (Bits): `Integer 1` | `Integer 2`
 * `Integer 2 (4-bit)` | The second integer.
 
 ## Integer
-An integer can be any length from 1 to 8 bytes, the integer ends when the end sign is set to 1.
+An integer can be any length from 1 to 4 bytes, the integer ends when the end sign is set to 1.
 
 Format (Bits): `End Sign (1-bit)` | `Integer Data (7-bit)`
 
@@ -139,7 +139,7 @@ The BoolArray data format contains a length and chunks.
 
 Format (Bytes): `Array Length` | `...Chunks`
 * `Array Length (Integer)` | The length of the array. (How many elements there are in the array.)
-* `...Chunks (Byte)` | A chunk can contain up to 8 boolean value, the amound of chunks depends on the array length.
+* `...Chunks (Byte)` | A chunk can contain up to 8 boolean value, the amound of chunks depends on the length of the array.
 
 ## UintArray
 The BoolArray data format contains a length and chunks, and store the uint size in the [fragment header](#header).

@@ -19,7 +19,7 @@
 > [!IMPORTANT]
 > Binarion is not a competitor to [JSON](https://zh.wikipedia.org/wiki/JSON), it is not faster or more compact than [JSON](https://zh.wikipedia.org/wiki/JSON) most of the time.
 
-Binarion is designed to store [JavaScript](https://en.wikipedia.org/wiki/JavaScript) objects that contain large TypedArray. For most use cases, using [JSON](https://zh.wikipedia.org/wiki/JSON) will be faster and more compact, but for some niche use cases, Binarion can be a good choice.
+Binarion is designed to store [JavaScript](https://en.wikipedia.org/wiki/JavaScript) objects that contain large [TypedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray). For most use cases, using [JSON](https://zh.wikipedia.org/wiki/JSON) will be faster and more compact, but for some niche use cases, Binarion can be a good choice.
 
 * Store image pixel data with other information, like width and height.
 * Store world data for 2D sandbox game. (width, height, chunks, blocks, etc...)
