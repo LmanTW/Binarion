@@ -23,7 +23,7 @@ Binarion is designed to store [JavaScript](https://en.wikipedia.org/wiki/JavaScr
 
 * Store image pixel data with other information, like width and height.
 * Store world data for 2D sandbox game. (width, height, chunks, blocks, etc...)
-* ~~Store the state of [one million checkboxes](https://onemillioncheckboxes.com).~~
+* ~~Store the state of [one million checkboxes](https://onemillioncheckboxes.com)~~.
 
 ## Supported Data Formats
 | Name       | Corresponding JavaScript Object             | Implemented |
@@ -31,7 +31,7 @@ Binarion is designed to store [JavaScript](https://en.wikipedia.org/wiki/JavaScr
 | None       | `null`, `undefined`                         | ✅          |
 | Boolean    | `boolean`                                   | ✅          |
 | Integer    | `number`                                    | ✅          |
-| Float      | `float`                                     | ✅          |
+| Float      | `float`                                     | ❌          |
 | String     | `string`                                    | ✅          |
 | Array      | `Array`                                     | ✅          |
 | BoolArray  |                                             | ❌          |
