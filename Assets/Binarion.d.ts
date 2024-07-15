@@ -15,11 +15,21 @@ declare namespace Inspect {
     }
 }
 
+declare class export_default$1{
+    private _groups;
+    constructor();
+    hasGroup(name: string): boolean;
+    createGroup(name: string): void;
+    getCache<Type>(groupName: string, name: any): undefined | Type;
+    setCache(groupName: string, name: any, value: any): void;
+}
+
 declare namespace Data {
     class Writer {
         private _index;
         private _bytes;
-        constructor(bytes: Uint8Array);
+        Cache: export_default$1;
+        constructor(Cache: export_default$1, bytes: Uint8Array);
         get index(): number;
         get bytes(): Uint8Array;
         writeByte(byte: number): void;
@@ -45,11 +55,11 @@ declare namespace DataFormat {
     }> {
         id: DataFormat.ID;
         getHeaderAttachemnt: (data: Type) => number;
-        getBodyInfo: (data: Type) => BodyInfo;
+        getBodyInfo: (Cache: export_default$1, data: Type) => BodyInfo;
         writeBody: (Writer: Data.Writer, data: Type, bodyInfo: BodyInfo) => void;
         readBody: (Reader: Data.Reader, headerAttachment: number) => Type;
         inspectName: (headerAttachment: number) => string;
-        inspectChildren: (Reader: Data.Reader, options: Inspect.Options, depth: number) => Inspect.Result[];
+        inspectChildren: (Reader: Data.Reader, headerAttachment: number, options: Inspect.Options, depth: number) => Inspect.Result[];
     }
     enum ID {
         None = 0,
