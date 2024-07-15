@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LmanTW/Binarion/main/Assets/Visuals/Banner_Dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/LmanTW/Binarion/main/Assets/Visuals/Banner_Light.svg">
-  <img alt="The banner" src="https://raw.githubusercontent.com/LmanTW/Binarion/main/Assets/Visuals/Banner_Dark.svg">
+  <img alt="The banner" src="https://raw.githubusercontent.com/LmanTW/Binarion/main/Assets/Visuals/Banner_Light.svg">
 </picture>
 
 <p align="center">
@@ -41,4 +41,3 @@ Binarion is designed to store [JavaScript](https://en.wikipedia.org/wiki/JavaScr
 | Map        | `Map`                                       | ✅          |
 | Set        | `Set`                                       | ✅          |
 | Function   | `Function`                                  | ❌          |
-
