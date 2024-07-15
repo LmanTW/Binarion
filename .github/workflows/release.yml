@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write
 
 jobs:
   release:
@@ -19,6 +20,16 @@ jobs:
     steps: 
     - name: Checkout
       uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      
+      with:
+        node-version: '18'
+    - name: Npm Publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      run: npm publish
     - name: Release
       id: release
       uses: actions/create-release@latest
