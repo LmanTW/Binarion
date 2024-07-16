@@ -38,7 +38,7 @@ const { Binarion } = require('binarion') // For CommonJS.
 * `data: any` | The object you want to save.
 
 > [!NOTE]
-> Check out [Supported Data Formats](https://github.com/LmanTW/Binarion/blob/main/README.md#supported-data-formats) to see what [JavaScript](https://en.wikipedia.org/wiki/JavaScript) objects are supported.
+> You can check out [Supported Data Formats](https://github.com/LmanTW/Binarion/blob/main/README.md#supported-data-formats) to see what [JavaScript](https://en.wikipedia.org/wiki/JavaScript) objects are supported.
 
 > return `Uint8Array`
 

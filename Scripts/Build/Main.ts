@@ -46,7 +46,7 @@ async function start (): Promise<void> {
     dts: true
   })
 
-  console.log(` \x1b[32m📦 Successfully Bundled Binarion\x1b[0m\n`)
+  console.log(` 📦 \x1b[32mSuccessfully Bundled Binarion\x1b[0m\n`)
 
   console.log(` 🗜️ Minifying Binarion`)
 
@@ -54,7 +54,7 @@ async function start (): Promise<void> {
 
   for (const filePath of filesPath) fs.writeFileSync(filePath, (await minify(fs.readFileSync(filePath, 'utf8'))).code!)
 
-  console.log(` \x1b[32m🗜️ Successfully Minified Binarion\x1b[0m\n`)
+  console.log(` 🗜️ \x1b[32mSuccessfully Minified Binarion\x1b[0m\n`)
   
   fs.renameSync(path.join(__dirname, 'Cache', 'API.js'), path.resolve(__dirname, '../../Assets/Binarion.cjs'))
   fs.renameSync(path.join(__dirname, 'Cache', 'API.mjs'), path.resolve(__dirname, '../../Assets/Binarion.mjs'))

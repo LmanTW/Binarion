@@ -1,31 +1,23 @@
-import inspector from 'inspector'
-import path from 'path'
-import fs from 'fs'
+import test from './Test'
 
-import { Binarion } from '../../Binarion/API'
+const testData1: { [key: number]: { [key: number]: number }} = {}
 
-const session = new inspector.Session()
+for (let i = 0; i < 128; i++) {
+  testData1[i] = {}
 
-session.connect()
+  for (let i2 = 0; i2 < 128; i2++) testData1[i][i2] = i2
+}
 
-session.post('Profiler.enable', () => {
-  session.post('Profiler.start', () => {
-    const data: { [key: number]: { [key: number]: number }} = {}
+test('Complex Object', testData1, 32)
 
-    for (let i = 0; i < 256; i++) {
-      data[i] = {}
+const testData2 = { a: true, b: 12345, c: new Uint8Array(8192) }
 
-      for (let i2 = 0; i2 < 256; i2++) data[i][i2] = i2
-    }
+for (let i = 0; i < testData2.c.length; i++) testData2.c[i] = i % 255
 
-    const start = performance.now()
+test('Simple Object With Large Uint8Array', testData2, 64)
 
-    Binarion.load(Binarion.save(data)) 
+const testData3 = { a: true, b: 12345, c: new Uint16Array(8192) }
 
-    console.log(Math.round(performance.now() - start))
+for (let i = 0; i < testData3.c.length; i++) testData2.c[i] = i % 255
 
-    session.post('Profiler.stop', (_, { profile }) => {
-      fs.writeFileSync(path.join(__dirname, 'Result.profile'), JSON.stringify(profile))
-    })
-  })
-})
+test('Simple Object With Large Uint16Array', testData3, 64)

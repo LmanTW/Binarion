@@ -1,8 +1,4 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/LmanTW/Binarion/main/Assets/Visuals/Banner_Dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/LmanTW/Binarion/main/Assets/Visuals/Banner_Light.svg">
-  <img alt="The banner" src="https://raw.githubusercontent.com/LmanTW/Binarion/main/Assets/Visuals/Banner_Dark.svg">
-</picture>
+<img alt="The banner" src="https://raw.githubusercontent.com/LmanTW/Binarion/main/Assets/Visuals/Banner.svg">
 
 <p align="center">
   <a href="https://github.com/LmanTW/Binarion/blob/main/Documents/GetStarted.md">Get Started</a> | 
@@ -24,6 +20,8 @@ Binarion is designed to store [JavaScript](https://en.wikipedia.org/wiki/JavaScr
 * Store image pixel data with other information, like width and height.
 * Store world data for 2D sandbox game. (width, height, chunks, blocks, etc...)
 * ~~Store the state of [one million checkboxes](https://onemillioncheckboxes.com)~~.
+
+[Performance](https://github.com/LmanTW/Binarion/blob/main/Documents/Performance.md)
 
 ## Supported Data Formats
 | Name       | Corresponding JavaScript Object             | Implemented |
