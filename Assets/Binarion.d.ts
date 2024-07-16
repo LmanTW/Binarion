@@ -17,11 +17,11 @@ declare namespace Inspect {
 
 declare class export_default$1{
     private _groups;
-    constructor();
     hasGroup(name: string): boolean;
     createGroup(name: string): void;
     getCache<Type>(groupName: string, name: any): undefined | Type;
     setCache(groupName: string, name: any, value: any): void;
+    clear(): void;
 }
 
 declare namespace Data {

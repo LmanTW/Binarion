@@ -10,6 +10,8 @@ namespace Binarion {
 
     Fragment.writeFragment(Writer, data)
 
+    Writer.Cache.clear()
+
     return bytes
   }
 

@@ -2,9 +2,6 @@
 export default class {
   private _groups: { [key: string]: Map<any, any> } = {}
 
-  constructor () {
-  }
-
   // Check If A Cache Group Exists
   public hasGroup (name: string): boolean {
     return this._groups[name] !== undefined
@@ -29,5 +26,10 @@ export default class {
     if (this._groups[groupName] === undefined) throw new Error(`Cache Group Not Found: "${groupName}"`)
 
     this._groups[groupName].set(name, value)
+  }
+
+  // Clear The Cache
+  public clear (): void {
+    Object.keys(this._groups).forEach((name) => this._groups[name].clear())
   }
 }
