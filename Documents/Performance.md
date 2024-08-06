@@ -6,24 +6,24 @@ The performance of Binarion.
 
 ## Complex Object
 * Binarion
-  * Load Time: `109.3ms`
-  * Save Time: `27.7ms`
+  * Save Time: `132.3ms`
+  * Load Time: `25.4ms`
 * JSON
-  * Load Time: `2.1ms` (x52 Faster)
-  * Save Time: `0.8ms` (x33 Faster)
+  * Save Time: `3.0ms` (x44 Faster)
+  * Load Time: `1.2ms` (x21 Faster)
 
 ## Simple Object With Large Uint8Array
 * Binarion
-  * Load Time: `0.1ms`
-  * Save Time: `0.0ms`
+  * Save Time: `0.1ms`
+  * Load Time: `0.0ms`
 * JSON
-  * Load Time: `1.1ms` (x19 Slower)
-  * Save Time: `0.5ms` (x31 Slower)
+  * save Time: `1.5ms` (x17 Slower)
+  * load Time: `0.6ms` (x35 Slower)
 
 ## Simple Object With Large Uint16Array
 * Binarion
-  * Load Time: `0.2ms`
-  * Save Time: `0.2ms`
+  * Load Time: `0.4ms`
+  * Save Time: `0.3ms`
 * JSON
-  * Load Time: `1.0ms` (x4 Slower)
-  * Save Time: `0.4ms` (x2 Slower)
+  * Load Time: `1.4ms` (x4 Slower)
+  * Save Time: `0.6ms` (x2 Slower)
