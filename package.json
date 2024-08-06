@@ -2,7 +2,8 @@
   "name": "binarion",
   "description": "A simple binary format for storing JavaScript objects.",
   "homepage": "https://github.com/LmanTW/Binarion",
-  "version": "0.1.3",
+
+  "version": "0.1.4",
   "keywords": [
     "binary",
     "encoding",
@@ -11,18 +12,21 @@
     "format"
   ],
   "license": "MIT",
-  "main": "Assets/Binarion.mjs",
+
+  "main": "./Assets/Binarion.cjs",
   "exports": {
-    "import": "Assets/Binarion.mjs",
-    "require": "Assets/Binarion.cjs"
+    "import": "./Assets/Binarion.mjs",
+    "require": "./Assets/Binarion.cjs"
   },
-  "types": "Assets/Binarion.d.ts",
+  "types": "./Assets/Binarion.d.ts",
+
   "scripts": {
-    "start": "tsx Scripts/Test/Main.ts",
-    "performance": "tsx --trace-warnings Scripts/Performance/Main.ts",
-    "build": "tsx Scripts/Build/Main.ts",
-    "release": "tsx Scripts/Build/Main.ts && npm publish"
+    "start": "tsx ./Scripts/Test/Main.ts",
+    "performance": "tsx --trace-warnings ./Scripts/Performance/Main.ts",
+    "build": "tsx ./Scripts/Build/Main.ts",
+    "release": "tsx ./Scripts/Build/Main.ts && npm publish"
   },
+
   "devDependencies": {
     "terser": "^5.31.1",
     "tsup": "^8.1.0",
