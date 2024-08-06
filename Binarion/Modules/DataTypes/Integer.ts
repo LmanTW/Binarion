@@ -68,17 +68,17 @@ class Integer {
 
   // Read An Integer
   public static readInteger (Reader: Data.Reader): number {
-    let value: bigint = 0n
+    let value: number = 0
     let offset: number = 0
 
     while (Reader.index < Reader.bytes.length) {
-      const byte = Reader.readByte() 
+      const byte = Reader.readByte()
 
       if (byte >> 7 === 1) {
-        value |= (BigInt(byte) & 0b01111111n) << BigInt(offset)
+        value |= (byte & 0b01111111) << offset
 
         break
-      } else value |= BigInt(byte) << BigInt(offset)
+      } else value |= byte << offset
 
       offset += 7
     }

@@ -3,7 +3,7 @@
   "description": "A simple binary format for storing JavaScript objects.",
   "homepage": "https://github.com/LmanTW/Binarion",
 
-  "version": "0.1.4",
+  "version": "0.1.5",
   "keywords": [
     "binary",
     "encoding",

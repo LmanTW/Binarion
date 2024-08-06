@@ -13,7 +13,11 @@ const DataFormat_String: DataFormat.Template<string, { bodyLength: number }> = {
   readBody: (Reader) => String.readString(Reader),
 
   inspectName: () => 'String',
-  inspectChildren: () => []
+  inspectChildren: (Reader) => {
+    String.readString(Reader)
+
+    return []
+  }
 }
 
 export default DataFormat_String
